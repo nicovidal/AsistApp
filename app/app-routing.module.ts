@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'asist-qr',
+    loadChildren: () => import('./pages/asist-qr/asist-qr.module').then( m => m.AsistQRPageModule)
+  },
 ];
 
 @NgModule({
