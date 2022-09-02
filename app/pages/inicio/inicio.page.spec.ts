@@ -17,7 +17,7 @@ describe('InicioPage', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
-
+5
   it('should create', () => {
     expect(component).toBeTruthy();
   });
