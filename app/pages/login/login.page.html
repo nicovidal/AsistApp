@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+
+  <img src="assets/logo.png">
+  <ion-label>AsistApp</ion-label>
+  <ion-card>
+  <form class="login">
+    <ion-item >
+      <ion-label >Mail</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block">Login</ion-button>
+        <a [routerLink]="['/forgot-password']" class="small-text">Olvidaste Contraseña?</a>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-card>
+</ion-content>
