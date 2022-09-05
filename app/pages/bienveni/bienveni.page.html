@@ -4,16 +4,22 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-label>¿Tienes cuenta ?</ion-label>
-  <ion-label>Eres</ion-label>
+  <ion-item-divider>
+  <ion-label>¿Tienes cuenta?</ion-label>
+  </ion-item-divider>
+  <ion-item-divider>
   <ion-button (click)="onClick()" expand="block"  shape="round" routerLink="/login">
     alumno
   </ion-button>
-  <ion-label>O</ion-label>
   <ion-button (click)="onClick()" expand="block"  shape="round" routerLink="/login">
     Docente
   </ion-button>
+</ion-item-divider>
+
+  <ion-item-divider>
+
   <ion-button (click)="onClick()" expand="block" shape="round" routerLink="/registro">
     Registrarse
   </ion-button>
+  </ion-item-divider>
 </ion-content>
