@@ -6,26 +6,28 @@
     <ion-title>Log In</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content >
-
-  <img src="assets/logo.png">
-  <ion-label>AsistApp</ion-label>
+<ion-content>
   <ion-card>
-  <form class="login">
-    <ion-item >
-      <ion-label >Mail</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="primary" expand="block" routerLink="/inicio">Login</ion-button>
-        <a [routerLink]="['/forgot-password']" class="small-text">Olvidaste Contraseña?</a>
-      </ion-col>
-    </ion-row>
-  </form>
-</ion-card>
+    <div>
+      <img src="assets/logo2.png">
+    </div>
+    <ion-label>AsistApp</ion-label>
+
+    <form class="login">
+      <ion-item>
+        <ion-label>Mail</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block" routerLink="/inicio">Login</ion-button>
+          <a [routerLink]="['/forgot-password']" class="small-text">Olvidaste Contraseña?</a>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
 </ion-content>
