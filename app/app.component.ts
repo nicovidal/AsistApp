@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { Router }from '@angular/router';
-import { Platform } from '@ionic/angular';
+
+interface Componente{
+  icon: string;
+  name: string;
+  redirecTo: string;
+}
+
 
 @Component({
   selector: 'app-root',
@@ -8,13 +13,36 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private router : Router,private platform:Platform) {}
+  constructor() {}
 
-  initialezeApp(){
-    this.platform.ready().then(()=>{
-      this.router.navigateByUrl('splash');
-    });
+  componentes : Componente[] = [
+    {
+      icon: 'wifi-outline',
+      name: 'Inicio',
+      redirecTo:'/inicio'
+    },
+    {
+      icon: 'book-outline',
+      name: 'Datos',
+      redirecTo:'/datos'
+    },
+    {
+      icon:'calendar-number-outline',
+      name: 'Asistencia',
+      redirecTo:'/asistencia-alumno'
+    },
+    {
+      icon:'apps-outline',
+      name: 'Generar QR',
+      redirecTo:'/asist-qr'
+    },
+    {
+      icon:'newspaper-outline',
+      name: 'Registro',
+      redirecTo:'/registro'
+    },
+  ];
 
-  }
+
 
 }
