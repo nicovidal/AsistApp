@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'asistencia-alumno',
     loadChildren: () => import('./pages/asistencia-alumno/asistencia-alumno.module').then( m => m.AsistenciaAlumnoPageModule)
+  },  {
+    path: 'scanner',
+    loadChildren: () => import('./pages/scanner/scanner.module').then( m => m.ScannerPageModule)
   },
+
 ];
 
 @NgModule({

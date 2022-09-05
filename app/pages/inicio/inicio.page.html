@@ -5,12 +5,32 @@
         <ion-icon slot="start" name="menu-outline" color="primary"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Inicio</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-content>
+      Bienvenido
+      <ion-label>Nombre:</ion-label>
+      <ion-label>Apellido:</ion-label>
+      <ion-label>Rut:</ion-label>
+      <ion-label>Carrera:</ion-label>
+      <ion-label>Rut:</ion-label>
+      <ion-label>Jornada:</ion-label>
+      <ion-label>Mail:</ion-label>
+    
+    </ion-card-content>
+  </ion-card>
 
-
-  
 </ion-content>
+
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-button class="botonQr" (click)="onClick()">
+      <ion-icon slot="icon-only"  name="qr-code-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
