@@ -7,16 +7,17 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card>
-    <div>
+   <ion-card> 
+    <div class="container">
       <img src="assets/logo2.png">
     </div>
-    <ion-label>AsistApp</ion-label>
-
+    <div>
+    <ion-card-subtitle>AsistApp</ion-card-subtitle>
+    </div>
     <form class="login">
       <ion-item>
-        <ion-label>Mail</ion-label>
-        <ion-input type="text" required></ion-input>
+        <ion-label position="floating">Mail</ion-label>
+        <ion-input type="text"  required></ion-input>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="floating">Contraseña</ion-label>
@@ -29,5 +30,5 @@
         </ion-col>
       </ion-row>
     </form>
-  </ion-card>
+  </ion-card> 
 </ion-content>
