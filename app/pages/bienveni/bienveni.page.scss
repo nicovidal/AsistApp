@@ -5,20 +5,28 @@ ion-content{
      #a0ebc0 75%, #8ce6c1 87.5%, #77e3c4 100%);
 }
 
-
-ion-toolbar{
-    --background:white;
-    --color:black;
+h1{
+    font-family: 'Asap';
+    color:black;
+    margin-left: 30px;
 }
+
 
 
 img{
 
     height: 100px;
-    margin-top: 10%;
-     margin-left: 20%;
-    border-radius: 40px;
-        
-
+    margin-top: 30%;
+    margin-left: 100px;
+    border-radius: 40px;      
 }
 
+.registrar{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+ion-button{
+    border:black 1px solid;
+    border-radius:40px;
+}

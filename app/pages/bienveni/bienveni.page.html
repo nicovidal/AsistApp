@@ -1,8 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Bienvenido</ion-title>
-  </ion-toolbar>
-</ion-header>
 <ion-content>
   <div class="logito">
     <img src="assets/logo2.png">
@@ -10,24 +5,16 @@
   <div class="title">
     <h1> Bienvenido a AsistApp</h1>
   </div>
-  <ion-label>
-    <h1>¿Tienes cuenta?</h1>
-  </ion-label>
-
-  <ion-button expand="block" shape="round" routerLink="/login">
+  <ion-button size="large" shape="round" routerLink="/login" color="light">
     ALUMNO
   </ion-button>
-  <ion-button expand="block" shape="round" routerLink="/login">
+  <ion-button size="large" shape="round" routerLink="/login" color="light">
     DOCENTE
   </ion-button>
-  <ion-item-divider>
-    <ion-label class="centro"> ---------------------- O ------------------------</ion-label>
-  </ion-item-divider>
-
-
-
-  <ion-button expand="block" shape="round" routerLink="/registro">
-    Registrarse
+  <div>
+    <ion-label class="centro"> NO TIENES CUENTA?</ion-label>
+  </div>
+  <ion-button size="large"  class="registrar" shape="round" routerLink="/registro" color="light">
+    Registrate
   </ion-button>
-
 </ion-content>
