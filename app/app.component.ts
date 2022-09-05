@@ -41,6 +41,7 @@ export class AppComponent {
       name: 'Registro',
       redirecTo:'/registro'
     },
+
   ];
 
 
