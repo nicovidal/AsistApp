@@ -10,17 +10,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-
-  <form #formulario="ngForm" (ngSubmit) ="onSubmit()">
-  
-
+  <form #formulario="ngForm" (ngSubmit) ="onSubmit()" class="formulario">
     <ion-item>
       <ion-label>Nombre: </ion-label>
       <ion-input type="text" placeholder="Nombre"
                  name="nombre" [(ngModel)]= "usuario.nombre" required>
       </ion-input>
     </ion-item>
-
     <ion-item>
       <ion-label>Apellido: </ion-label>
       <ion-input type="text" placeholder="Apellido"
@@ -51,12 +47,27 @@
                  required>
       </ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Jornada</ion-label>
+      <ion-select required>
+        <ion-select-option value="Diurno">Diurno</ion-select-option>
+        <ion-select-option value="Vespertino">Vespertina</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Carrera</ion-label>
+      <ion-select required>
+        <ion-select-option value="Informatica">Ingenieria Informatica"</ion-select-option>
+        <ion-select-option value="Animacion">Animacion</ion-select-option>
+        <ion-select-option value="Enfermeria">Enfermeria</ion-select-option>
+        <ion-select-option value="Redes y comunicaciones">Redes</ion-select-option>
+      </ion-select>
+    </ion-item>
 
     <ion-button [disabled] ="formulario.invalid"
             type="submit" expand="block" routerLink="/inicio">
       Click me
     </ion-button>
-
   </form>
 
 </ion-content>
