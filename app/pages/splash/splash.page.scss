@@ -5,7 +5,6 @@ ion-content{
      #a0ebc0 75%, #8ce6c1 87.5%, #77e3c4 100%);
 }
 
-
 @-webkit-keyframes rotate-in-hor{0%{-webkit-transform:rotateX(360deg);transform:rotateX(360deg);opacity:0}100%{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes rotate-in-hor{0%{-webkit-transform:rotateX(360deg);transform:rotateX(360deg);opacity:0}100%{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}
 .container{
     -webkit-animation:rotate-in-hor 2s cubic-bezier(.25,.46,.45,.94) both;animation:rotate-in-hor 2s cubic-bezier(.25,.46,.45,.94) both;
