@@ -36,12 +36,6 @@ export class AppComponent {
       name: 'Generar QR',
       redirecTo:'/asist-qr'
     },
-    {
-      icon:'newspaper-outline',
-      name: 'Registro',
-      redirecTo:'/registro'
-    },
-
   ];
 
 
