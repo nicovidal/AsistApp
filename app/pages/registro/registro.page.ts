@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -8,11 +7,22 @@ import { MenuController } from '@ionic/angular';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private menuController:MenuController) { }
+  constructor() { }
 
   ngOnInit() {
   }
-  mostrarMenu(){
-    this.menuController.open('first');
+
+  usuario = {
+    nombre:'',
+    apellido:'',
+    rut:'',
+    email: '',
+    password:''
   }
+
+  onSubmit(){
+    console.log('submit');
+    console.log(this.usuario);
+  }
+
 }
