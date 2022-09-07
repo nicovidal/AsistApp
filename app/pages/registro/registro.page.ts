@@ -17,7 +17,9 @@ export class RegistroPage implements OnInit {
     apellido:'',
     rut:'',
     email: '',
-    password:''
+    password:'',
+    jornada:'',
+    carrera:'',
   }
 
   onSubmit(){

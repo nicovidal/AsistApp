@@ -9,12 +9,41 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-label>Nombre:</ion-label>
-  <ion-label>Apellido:</ion-label>
-  <ion-label>Rut:</ion-label>
-  <ion-label>Carrera:</ion-label>
-  <ion-label>Rut:</ion-label>
-  <ion-label>Jornada:</ion-label>
-  <ion-label>Mail:</ion-label>
+  <form>
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input type="text" placeholder="Usuario"
+                 name="nombre"  required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido: </ion-label>
+      <ion-input type="text" placeholder="Usuario"
+                 name="apellido"  required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mail: </ion-label>
+      <ion-input type="text" placeholder="Usuario"
+                 name="apellido"  required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contraseña: </ion-label>
+      <ion-input type="password" placeholder="Usuario"
+                 name="contraseña"  required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label> Jornada:</ion-label>
+      <ion-input type="text" placeholder="Diurna"
+                 name="Jornada"  required>
+      </ion-input>
+    </ion-item>
+    <ion-button (click)="onClick()" expand="block" type="primary" shape="round">
+      Guardar Cambios
+    </ion-button>
+
+  </form>
 
 </ion-content>
