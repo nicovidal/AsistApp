@@ -23,7 +23,7 @@ export class AppComponent {
     },
     {
       icon: 'book-outline',
-      name: 'Datos',
+      name: 'Modificar Datos',
       redirecTo:'/datos'
     },
     {
