@@ -36,7 +36,10 @@ export class AppComponent {
       name: 'Generar QR',
       redirecTo:'/asist-qr'
     },
+
   ];
+  
+
 
 
 
