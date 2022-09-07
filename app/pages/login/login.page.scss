@@ -28,8 +28,30 @@ ion-content{
      #a0ebc0 75%, #8ce6c1 87.5%, #77e3c4 100%);
 }
 
-
-
 .container{
     margin-left:30%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.titulo{
+    margin-bottom: 20px;
+}
+
+ion-item{  
+    border: black 1px solid;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 0.5px;
+   
+}
+.Logear{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.olvidaste{
+    margin-top: 20px;
+    margin-left: 20%;
 }
