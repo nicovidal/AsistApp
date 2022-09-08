@@ -20,6 +20,7 @@ export class RegistroPage implements OnInit {
     password:'',
     jornada:'',
     carrera:'',
+    tipo:'',
   }
 
   onSubmit(){

@@ -6,8 +6,8 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-list class="menu">
-        <ion-menu-toggle *ngFor="let c of componentes">
+      <ion-list style="background-color: white; color:black">
+        <ion-menu-toggle *ngFor="let c of componentes" class="menu" >
           <ion-item [routerLink]="c.redirecTo" detail=true>
             <ion-icon slot="start" [name]="c.icon" color="primary"></ion-icon>
             {{ c.name }}

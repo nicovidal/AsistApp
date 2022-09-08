@@ -48,6 +48,13 @@
       </ion-input>
     </ion-item>
     <ion-item>
+      <ion-label >Tipo</ion-label>
+      <ion-select >
+        <ion-select-option required value="Docente">Docente</ion-select-option>
+        <ion-select-option required value="Alumno">Alumno</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
       <ion-label >Jornada</ion-label>
       <ion-select >
         <ion-select-option required value="Diurno">Diurno</ion-select-option>
@@ -63,6 +70,7 @@
         <ion-select-option required value="Redes y comunicaciones">Redes</ion-select-option>
       </ion-select>
     </ion-item>
+    <br>
     <ion-button [disabled] ="formulario.invalid"
             type="submit" expand="block" routerLink="/inicio">
       Registrarse
