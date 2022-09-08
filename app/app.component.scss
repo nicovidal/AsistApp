@@ -7,12 +7,7 @@ ion-toolbar{
     --background: white;
     color: black;
 }
-.md{
-    --background: white;
-    color: black;}
-.hydrated{
-    
-}
+
 ion-content{
     --background: radial-gradient(circle at 
     40.38% -2.83%, #ffffdb 0, #ffffff 0%, 
@@ -22,9 +17,5 @@ ion-content{
      50.57%, #a0ebc0  85.71%, #8ce6c1 52.86%, #77e3c4 50%);
 
 }
-/* --background: linear-gradient(180deg, 
-#ffffdb 0, #f5ffd4 12.5%,
- #e7fdcf 25%, #d8f9c9 37.5%, #c6f4c4 50%, #b3efc1 62.5%,
- #a0ebc0 75%, #8ce6c1 87.5%, #77e3c4 100%);
- */
+
 
