@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'scanner',
     loadChildren: () => import('./pages/scanner/scanner.module').then( m => m.ScannerPageModule)
   },
+  {
+    path: 'feriado',
+    loadChildren: () => import('./pages/feriado/feriado.module').then( m => m.FeriadoPageModule)
+  },
 
 ];
 
