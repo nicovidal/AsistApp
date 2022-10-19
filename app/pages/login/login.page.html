@@ -13,25 +13,25 @@
     <div class="title">
       <h1> Bienvenido a AsistApp</h1>
     </div>
-    <form class="login">
-      <ion-item>
-        <ion-label class="label" position="floating">Mail</ion-label>
-        <ion-input type="text"  required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input   type="Password" class="primary-input"  required></ion-input>
-      </ion-item>
-      <ion-row>
-        <ion-col>
-          <div class="Logear">
-          <ion-button type="submit" color="primary" expand="block" routerLink="/inicio">Login</ion-button>
-          </div>
-          <div class="olvidaste">
-          <a [routerLink]="['/forgot-password']" class="small-text">Olvidaste Contraseña?</a>
-          </div>
-        </ion-col>
-     </ion-row>
-    </form>
+
+    <ion-card-content>
+      <form [formGroup]="formularioLogin">
+
+        <ion-item>
+          <ion-label position="floating">Correo: </ion-label>
+          <ion-input type="email" formControlName="correo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password: </ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </form>
+      <br>
+      <ion-button (click)="Ingresar()" expand="block" fill="outline" shape="round">
+        Ingresar
+      </ion-button>
+  </ion-card-content>
+
   
 </ion-content>
