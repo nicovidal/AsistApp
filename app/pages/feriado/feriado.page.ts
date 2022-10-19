@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from '../../interfaces/interfaces';
 import { FeriadoService } from '../../service/feriado.service';
 
 @Component({
@@ -8,13 +9,17 @@ import { FeriadoService } from '../../service/feriado.service';
 })
 export class FeriadoPage implements OnInit {
 
+  feriado: Article[] = [];
+
   constructor(private feriadoService: FeriadoService) { }
 
   
 
   ngOnInit() {
     this.feriadoService.getTopHeadLines().subscribe(resp => 
-      {console.log('feriado',resp)});
+      {console.log('feriado',resp);
+    this.feriado.push(...resp.articles);
+  });
   };
 
 }
