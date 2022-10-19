@@ -23,8 +23,7 @@ export class RegistroPage implements OnInit {
               private fb:FormBuilder) {
                 this.formularioRegistro = this.fb.group({
                   'nombre' : new FormControl("", Validators.required), 
-                  'apellido':new FormControl("",Validators.required),
-                  'rut':new FormControl("",Validators.required),
+                  'apellido':new FormControl("",Validators.required),                
                   'correo' : new FormControl("", Validators.required),
                   'tipo':new FormControl("",Validators.required), 
                   'password': new FormControl("", Validators.required), 
@@ -75,4 +74,29 @@ export class RegistroPage implements OnInit {
   }
 
 
+  tipoUsuario = undefined;
+  tipos = [
+    {
+      id: 1,
+      name: 'Profesor',
+      type: 'tipo',
+    },
+    {
+      id: 2,
+      name: 'Alumno',
+      type: 'tipo',
+    },
+
+  ];
+
+  compareWith(o1, o2) {
+    return o1 && o2 ? o1.id === o2.id : o1 === o2;
+  }
+
+  handleChange(ev) {
+    this.tipoUsuario = ev.target.value;
+  }
+
+
 }
+
