@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 
-interface Componente{
+interface Componente {
   icon: string;
   name: string;
   redirecTo: string;
@@ -16,17 +16,18 @@ interface Componente{
 export class InicioPage implements OnInit {
 
 
-  
+
   constructor(private menuController: MenuController) { }
 
   ngOnInit() {
   }
-  mostrarMenu(){
+  mostrarMenu() {
     this.menuController.open('first');
   }
 
-  logout(){
-   localStorage.clear();
+  logout() {
+    localStorage.clear();
+    console.log('logout')
     console.log(localStorage)
   }
 }

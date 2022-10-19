@@ -23,10 +23,7 @@ const routes: Routes = [
     path: 'splash',
     loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
   },
-  {
-    path: 'bienveni',
-    loadChildren: () => import('./pages/bienveni/bienveni.module').then( m => m.BienveniPageModule)
-  },
+
   {
     path: 'datos',
     loadChildren: () => import('./pages/datos/datos.module').then( m => m.DatosPageModule)
@@ -38,7 +35,8 @@ const routes: Routes = [
   {
     path: 'asistencia-alumno',
     loadChildren: () => import('./pages/asistencia-alumno/asistencia-alumno.module').then( m => m.AsistenciaAlumnoPageModule)
-  },  {
+  },
+  {
     path: 'scanner',
     loadChildren: () => import('./pages/scanner/scanner.module').then( m => m.ScannerPageModule)
   },

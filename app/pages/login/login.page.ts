@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
         if (f.correo == obj.correoUsuario && f.password==obj.passUsuario){
           a=1;
           console.log('ingresado');
+          console.log(localStorage)
           localStorage.setItem('ingresado','true');
           this.navController.navigateRoot('inicio');
         }
