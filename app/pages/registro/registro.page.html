@@ -10,71 +10,39 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form #formulario="ngForm" (ngSubmit) ="onSubmit()" class="formulario">
-    <ion-item>
-      <ion-label>Nombre: </ion-label>
-      <ion-input type="text" placeholder="Nombre"
-                 name="nombre" [(ngModel)]= "usuario.nombre" required>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Apellido: </ion-label>
-      <ion-input type="text" placeholder="Apellido"
-                 name="apellido" [(ngModel)]= "usuario.apellido" required>
-      </ion-input>
-    </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registro Usuario</ion-card-title>
+    </ion-card-header>
 
-    <ion-item>
-      <ion-label>Rut: </ion-label>
-      <ion-input type="text" placeholder="Rut"
-               name="rut" [(ngModel)]= "usuario.rut" required>
-    </ion-input>
-  </ion-item>
+    <ion-card-content>
+       <form [formGroup]="formularioRegistro" (keyup.enter)="CrearUsuario()">
 
-    <ion-item>
-      <ion-label>Email: </ion-label>
-      <ion-input type="email" placeholder="Email"
-                 name="email" value="" [(ngModel)]= "usuario.email"
-                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                 required>
-      </ion-input>
-    </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nombre..</ion-label>
+          <ion-input type="text" formControlName="nombre"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label>Password: </ion-label>
-      <ion-input type="password" placeholder="Contraseña"
-                 name="password" value="" [(ngModel)]= "usuario.password"
-                 required>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label >Tipo</ion-label>
-      <ion-select >
-        <ion-select-option required value="Docente">Docente</ion-select-option>
-        <ion-select-option required value="Alumno">Alumno</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label >Jornada</ion-label>
-      <ion-select >
-        <ion-select-option required value="Diurno">Diurno</ion-select-option>
-        <ion-select-option required value="Vespertino">Vespertina</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label>Carrera</ion-label>
-      <ion-select >
-        <ion-select-option  required value="Informatica">Ingenieria Informatica</ion-select-option>
-        <ion-select-option required value="Animacion">Animacion</ion-select-option>
-        <ion-select-option required value="Enfermeria">Enfermeria</ion-select-option>
-        <ion-select-option required value="Redes y comunicaciones">Redes</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <br>
-    <ion-button [disabled] ="formulario.invalid"
-            type="submit" expand="block" routerLink="/inicio">
-      Registrarse
-    </ion-button>
-  </form>
+        <ion-item>
+          <ion-label position="floating">Correo..</ion-label>
+          <ion-input type="email" formControlName="correo" ></ion-input>
+        </ion-item>
 
+        <ion-item>
+          <ion-label position="floating">Password..</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Confirma Pass..</ion-label>
+          <ion-input type="password" formControlName="confirmaPass"></ion-input>
+        </ion-item>
+
+       </form>
+       <br>
+       <ion-button (click)="CrearUsuario()" expand="block" fill="outline" shape="round">
+         Registrar
+       </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

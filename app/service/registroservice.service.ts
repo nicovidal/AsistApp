@@ -3,12 +3,14 @@ import { Storage } from '@ionic/storage';
 
 export interface Usuario{
   nomUsuario: string;
+  apeUsuario:string;
+  rutUsuario:string;
   correoUsuario:string;
+  tipoUsuario:string;
   passUsuario:string;
   repassUsuario: string; 
-  tipo:string;
-  jornada:string;
-  carrera:string
+
+
 }
 
 const USERS_KEY = 'my-usuarios';  
