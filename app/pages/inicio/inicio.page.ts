@@ -27,7 +27,6 @@ export class InicioPage implements OnInit {
 
   logout() {
     localStorage.clear();
-    console.log('logout')
     console.log(localStorage)
   }
 }
