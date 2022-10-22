@@ -43,7 +43,6 @@ export class RegistroPage implements OnInit {
     else{
     this.newUsuario.nomUsuario=form.nombre;
     this.newUsuario.apeUsuario=form.apellido;
-    this.newUsuario.rutUsuario=form.rut;
     this.newUsuario.correoUsuario=form.correo;
     this.newUsuario.tipoUsuario=form.tipo;
     this.newUsuario.passUsuario = form.password;
@@ -75,19 +74,6 @@ export class RegistroPage implements OnInit {
 
 
   tipoUsuario = undefined;
-  tipos = [
-    {
-      id: 1,
-      name: 'Profesor',
-      type: 'tipo',
-    },
-    {
-      id: 2,
-      name: 'Alumno',
-      type: 'tipo',
-    },
-
-  ];
 
   compareWith(o1, o2) {
     return o1 && o2 ? o1.id === o2.id : o1 === o2;
@@ -96,7 +82,6 @@ export class RegistroPage implements OnInit {
   handleChange(ev) {
     this.tipoUsuario = ev.target.value;
   }
-
 
 }
 

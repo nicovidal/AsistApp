@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AlumnoGuard } from './guards/alumno.guard';
 import { IngresadoGuard } from './guards/ingresado.guard'
 import { NoIngresadoGuard } from './guards/no-ingresado.guard';
 
@@ -36,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'asistencia-alumno',
-    loadChildren: () => import('./pages/asistencia-alumno/asistencia-alumno.module').then(m => m.AsistenciaAlumnoPageModule),canActivate: [IngresadoGuard]
+    loadChildren: () => import('./pages/asistencia-alumno/asistencia-alumno.module').then(m => m.AsistenciaAlumnoPageModule),canActivate: [IngresadoGuard,AlumnoGuard]
   },
   {
     path: 'scanner',

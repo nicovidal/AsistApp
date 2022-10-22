@@ -36,11 +36,12 @@ export class LoginPage implements OnInit {
         return null;
       }
       for (let obj of this.usuarios){
-        if (f.correo == obj.correoUsuario && f.password==obj.passUsuario){
+        if (f.correo == obj.correoUsuario && f.password==obj.passUsuario ){
           a=1;
           console.log('ingresado');
           console.log(localStorage)
           localStorage.setItem('ingresado','true');
+          localStorage.setItem('datos',JSON.stringify(datos))
           this.navController.navigateRoot('inicio');
         }
       }//findelfor
