@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AlumnoGuard } from './guards/alumno.guard';
 import { IngresadoGuard } from './guards/ingresado.guard'
 import { NoIngresadoGuard } from './guards/no-ingresado.guard';
+import { ProfesorGuard } from './guards/profesor.guard';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'asist-qr',
-    loadChildren: () => import('./pages/asist-qr/asist-qr.module').then(m => m.AsistQRPageModule), canActivate: [IngresadoGuard]
+    loadChildren: () => import('./pages/asist-qr/asist-qr.module').then(m => m.AsistQRPageModule), canActivate: [IngresadoGuard,ProfesorGuard]
   },
   {
     path: 'login',
@@ -41,7 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'scanner',
-    loadChildren: () => import('./pages/scanner/scanner.module').then(m => m.ScannerPageModule),canActivate: [IngresadoGuard]
+    loadChildren: () => import('./pages/scanner/scanner.module').then(m => m.ScannerPageModule),canActivate: [IngresadoGuard,AlumnoGuard]
   },
   {
     path: 'feriado',

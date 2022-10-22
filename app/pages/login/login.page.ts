@@ -38,11 +38,18 @@ export class LoginPage implements OnInit {
       for (let obj of this.usuarios){
         if (f.correo == obj.correoUsuario && f.password==obj.passUsuario ){
           a=1;
-          console.log('ingresado');
-          console.log(localStorage)
+     
           localStorage.setItem('ingresado','true');
           localStorage.setItem('datos',JSON.stringify(datos))
+          console.log('ingresado');
+          console.log(localStorage)
           this.navController.navigateRoot('inicio');
+          if(obj.tipoUsuario=='alumno'){
+            localStorage.setItem('esAlumno','true');
+          }
+          else(
+            localStorage.setItem('esProfesor','true')
+          )
         }
       }//findelfor
       if(a==0){
@@ -60,5 +67,7 @@ export class LoginPage implements OnInit {
     await alert.present();
     return;
   }
+
+  
 
 }
