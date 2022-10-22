@@ -10,10 +10,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <h1>Bienvenido Juan Perez</h1><br>
-      <ion-label>Rut: 20.676.544-K</ion-label><br>
+  <ion-card >
+    <ion-card-content >
+      <ion-label *ngFor="let dato of datito" >{{dato.nombre}}</ion-label><br>
       <ion-label>Carrera: Ing. Informatica</ion-label><br>
       <ion-label>Jornada: Diurna</ion-label><br>
       <ion-label>Correo: ju.perez@duocuc.cl</ion-label><br>

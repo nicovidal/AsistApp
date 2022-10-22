@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
           a=1;
      
           localStorage.setItem('ingresado','true');
-          localStorage.setItem('datos',JSON.stringify(datos))
+          localStorage.setItem('nombre',JSON.stringify(obj.nomUsuario))
           console.log('ingresado');
           console.log(localStorage)
           this.navController.navigateRoot('inicio');

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
+import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 
 
 interface Componente {
@@ -15,9 +16,9 @@ interface Componente {
 })
 export class InicioPage implements OnInit {
 
+  datosUsuario: Usuario[] = [];
 
-
-  constructor(private menuController: MenuController) { }
+  constructor(private menuController: MenuController, private registroService: RegistroserviceService) { }
 
   ngOnInit() {
   }
@@ -29,4 +30,10 @@ export class InicioPage implements OnInit {
     localStorage.clear();
     console.log(localStorage)
   }
+
+  datito = [{
+    
+    
+  }]
+
 }
