@@ -3,7 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 import { ToastController } from '@ionic/angular';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-
+import { Router }from '@angular/router';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -15,7 +15,7 @@ export class RegistroPage implements OnInit {
   newUsuario: Usuario = <Usuario>{};
 
 
-  constructor(private alertController: AlertController,
+  constructor(private router:Router,private alertController: AlertController,
     private registroService: RegistroserviceService,
     private toast: ToastController,
     private fb: FormBuilder) {
@@ -47,7 +47,7 @@ export class RegistroPage implements OnInit {
       this.newUsuario.repassUsuario = form.confirmaPass;
       this.registroService.addUsuario(this.newUsuario).then(dato => {
         this.newUsuario = <Usuario>{};
-        this.showToast('Usuario Creado!');
+        this.showToast('Cuenta Registada!');
       });
       this.formularioRegistro.reset();
     }
@@ -65,9 +65,13 @@ export class RegistroPage implements OnInit {
   async showToast(msg) {
     const toast = await this.toast.create({
       message: msg,
-      duration: 2000
+      duration: 1000,
+      
     })
     await toast.present();
+    setTimeout(()=>{
+      this.router.navigateByUrl('login');
+    },1000);
   }
 
 
