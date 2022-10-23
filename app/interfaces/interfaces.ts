@@ -1,9 +1,6 @@
-export interface RespuestaTopHeadlines {
-  articles: Article[];
-  }
-  
+
   export interface Article {
-    
+    articles: Article[]; 
     nombre: string;
     comentarios: string;
     fecha: Date;
