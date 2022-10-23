@@ -14,11 +14,10 @@ export class FeriadoPage implements OnInit {
   constructor(private feriadoService: FeriadoService) { }
 
   
-
   ngOnInit() {
-    this.feriadoService.getTopHeadLines().subscribe(resp =>{
-      console.log('feriado',resp);
-    this.feriado.push(...resp.articles);
+    this.feriadoService.getTopHeadLines().subscribe(resp => 
+      {this.feriado = resp ;
+
   });
   };
 

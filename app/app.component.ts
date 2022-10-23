@@ -36,6 +36,12 @@ export class AppComponent {
       name: 'Generar QR',
       redirecTo:'/asist-qr'
     },
+    {
+      icon:'apps-outline',
+      name: 'Feriados',
+      redirecTo:'/feriado'
+    },
+
 
   ];
   
