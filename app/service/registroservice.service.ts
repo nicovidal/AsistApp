@@ -4,7 +4,6 @@ import { Storage } from '@ionic/storage';
 export interface Usuario{
   nomUsuario: string;
   apeUsuario:string;
-  rutUsuario:string;
   correoUsuario:string;
   tipoUsuario:string;
   passUsuario:string;
@@ -53,10 +52,11 @@ export class RegistroserviceService {
   
 
   async getOnlyOneUser(){
-    localStorage.getItem('ingresado');
+    if(localStorage.hasOwnProperty('ingresado')){
     return this.storage.get(USERS_KEY);
   }
 
+}
 }
 
 
