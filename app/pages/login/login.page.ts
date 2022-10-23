@@ -40,9 +40,7 @@ export class LoginPage implements OnInit {
           a=1;
      
           localStorage.setItem('ingresado','true');
-          localStorage.setItem('nombre',JSON.stringify(obj.nomUsuario))
-          console.log('ingresado');
-          console.log(localStorage)
+          localStorage.setItem('datos',JSON.stringify(obj.nomUsuario))
           this.navController.navigateRoot('inicio');
           if(obj.tipoUsuario=='alumno'){
             localStorage.setItem('esAlumno','true');
@@ -51,12 +49,12 @@ export class LoginPage implements OnInit {
             localStorage.setItem('esProfesor','true')
           )
         }
-      }//findelfor
+      }
       if(a==0){
         this.alertMsg();
       }
     })
-  }//findelmetodo
+  }
 
   async alertMsg(){
     const alert = await this.alertController.create({

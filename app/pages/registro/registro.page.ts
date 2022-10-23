@@ -51,7 +51,7 @@ export class RegistroPage implements OnInit {
       });
       this.formularioRegistro.reset();
     }
-  }//findelmetodo
+  }
 
   async alertError() {
     const alert = await this.alertController.create({

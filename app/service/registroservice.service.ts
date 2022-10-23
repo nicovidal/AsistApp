@@ -27,13 +27,13 @@ export class RegistroserviceService {
     this.init();
    }
 
-   //creamos el storage de Usuarios
+ 
     async init(){
     const storage = await this.storage.create();
     this._storage = storage;
   }
 
-  //creamos un Usuario
+  //se crea usuario
   async addUsuario(dato: Usuario):Promise<any>{
    return this.storage.get(USERS_KEY).then((datos: Usuario[])=>{ 
      if(datos){
@@ -44,11 +44,18 @@ export class RegistroserviceService {
        return this.storage.set(USERS_KEY, [dato]);
      }
    })
-  }//findelmetodo
+  }
 
   //obtener todos los objetos desde el storage 
   async getUsuarios():Promise<Usuario[]>{
     return this.storage.get(USERS_KEY);
+  }
+  
+
+  async getOnlyUser():Promise<any>{
+    return this.storage.get(USERS_KEY).then((datos:Usuario[])=>{
+      return localStorage.getItem()
+    })
   }
 
 
