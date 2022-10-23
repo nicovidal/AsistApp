@@ -10,18 +10,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <h1>Bienvenido Juan Perez</h1><br>
-      <ion-label>Rut: 20.676.544-K</ion-label><br>
-      <ion-label>Carrera: Ing. Informatica</ion-label><br>
-      <ion-label>Jornada: Diurna</ion-label><br>
-      <ion-label>Correo: ju.perez@duocuc.cl</ion-label><br>
+  <ion-card >
+    <ion-card-content *ngFor="let dato of datosUsuario">
+      <ion-label >Bienvenid@ {{dato.tipoUsuario}} {{dato.nomUsuario}}</ion-label><br>
     </ion-card-content>
   </ion-card>
   <br>
   <div class="logout">
-    <ion-button size="default" routerLink="/login"  color="primary" shape="round">
+
+    <ion-button size="default" (click)="logout()"  routerLink="/login"  color="primary" shape="round">
       Logout
   </ion-button>
   </div>

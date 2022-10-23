@@ -1,8 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/bienveni" Text="" mode="ios"></ion-back-button>
-    </ion-buttons>
     <ion-title>Log In</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -32,13 +29,8 @@
         Ingresar
       </ion-button>
   </ion-card-content>
-
+  <div class="centro">
+    <ion-label><a [routerLink] = "['/registro']">¿ No tienes cuenta?</a></ion-label>
+  </div>
   </ion-content>
 
-<ion-footer>
-  <ion-toolbar color="secondary">
-    <ion-buttons slot="end">
-      <ion-button [routerLink] = "['/registro']">Registrarse</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>

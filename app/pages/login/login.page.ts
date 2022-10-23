@@ -36,18 +36,25 @@ export class LoginPage implements OnInit {
         return null;
       }
       for (let obj of this.usuarios){
-        if (f.correo == obj.correoUsuario && f.password==obj.passUsuario){
+        if (f.correo == obj.correoUsuario && f.password==obj.passUsuario ){
           a=1;
-          console.log('ingresado');
+     
           localStorage.setItem('ingresado','true');
+          localStorage.setItem('infoUsuario',JSON.stringify(datos))
           this.navController.navigateRoot('inicio');
+          if(obj.tipoUsuario=='alumno'){
+            localStorage.setItem('esAlumno','true');
+          }
+          else(
+            localStorage.setItem('esProfesor','true')
+          )
         }
-      }//findelfor
+      }
       if(a==0){
         this.alertMsg();
       }
     })
-  }//findelmetodo
+  }
 
   async alertMsg(){
     const alert = await this.alertController.create({
@@ -58,5 +65,7 @@ export class LoginPage implements OnInit {
     await alert.present();
     return;
   }
+
+  
 
 }

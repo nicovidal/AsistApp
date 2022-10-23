@@ -16,10 +16,10 @@ export class FeriadoPage implements OnInit {
   constructor(private menuController: MenuController, private feriadoService: FeriadoService) { }
 
 
-
   ngOnInit() {
     this.feriadoService.getTopHeadLines().subscribe(resp => 
-      {this.feriado = resp ;
+      {
+        this.feriado = resp ;
 
   });
   };
