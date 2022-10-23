@@ -13,7 +13,8 @@ export interface Usuario{
 }
 
 
-const USERS_KEY = 'my-usuarios';  
+const USERS_KEY = 'my-usuarios';
+const USER_KEY='infoUsuario'  
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,7 @@ export class RegistroserviceService {
   
 
   async getOnlyOneUser(){
-    if(localStorage.hasOwnProperty('ingresado')){
+    if(localStorage.getItem('infoUsuario')){
     return this.storage.get(USERS_KEY);
   }
 
