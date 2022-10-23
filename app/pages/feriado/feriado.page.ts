@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from '../../interfaces/interfaces';
+import { FeriadoService } from '../../service/feriado.service';
 
 @Component({
   selector: 'app-feriado',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeriadoPage implements OnInit {
 
-  constructor() { }
+  feriado: Article[] = [];
+
+  constructor(private feriadoService: FeriadoService) { }
+
+  
 
   ngOnInit() {
-  }
+    this.feriadoService.getTopHeadLines().subscribe(resp => 
+      {this.feriado = resp ;
+
+  });
+  };
 
 }
