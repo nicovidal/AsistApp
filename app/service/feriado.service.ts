@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RespuestaTopHeadlines } from '../interfaces/interfaces';
+import { Article, RespuestaTopHeadlines } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'

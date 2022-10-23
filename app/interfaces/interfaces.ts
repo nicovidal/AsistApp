@@ -1,7 +1,5 @@
 export interface RespuestaTopHeadlines {
-    status: string;
-    totalResults: number;
-    articles: Article[];
+  articles: Article[];
   }
   
   export interface Article {
@@ -12,11 +10,6 @@ export interface RespuestaTopHeadlines {
     irrenunciable: string;
     tipo: string;
     
-  }
-  
-  export interface Source {
-    id?: string;
-    name: string;
   }
 
 
