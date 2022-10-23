@@ -52,12 +52,10 @@ export class RegistroserviceService {
   }
   
 
-/*   async getOnlyUser():Promise<any>{
-    return this.storage.get(USERS_KEY).then((datos:Usuario[])=>{
-      return localStorage.getItem()
-    })
-  } */
-
+  async getOnlyOneUser(){
+    localStorage.getItem('ingresado');
+    return this.storage.get(USERS_KEY);
+  }
 
 }
 

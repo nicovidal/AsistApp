@@ -11,11 +11,11 @@
 
 <ion-content>
   <ion-card >
-    <ion-card-content >
-      <ion-label *ngFor="let dato of datito" >{{dato.nombre}}</ion-label><br>
-      <ion-label>Carrera: Ing. Informatica</ion-label><br>
-      <ion-label>Jornada: Diurna</ion-label><br>
-      <ion-label>Correo: ju.perez@duocuc.cl</ion-label><br>
+    <ion-card-content *ngFor="let dato of datosUsuario">
+      <ion-label >Bienvenido {{dato.nomUsuario}}</ion-label><br>
+      <ion-label>{{dato.nombreUser}}</ion-label><br>
+      <ion-label>{{dato.nombreUser}}</ion-label><br>
+      <ion-label>{{dato.nombreUser}}</ion-label><br>
     </ion-card-content>
   </ion-card>
   <br>

@@ -14,6 +14,8 @@ interface Componente {
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
+
+
 export class InicioPage implements OnInit {
 
   datosUsuario: Usuario[] = [];
@@ -21,6 +23,28 @@ export class InicioPage implements OnInit {
   constructor(private menuController: MenuController, private registroService: RegistroserviceService) { }
 
   ngOnInit() {
+    this.registroService.getOnlyOneUser().then(datos=>{
+      this.datosUsuario=datos;
+      if (!datos || datos.length==0){
+        return null;
+      }
+      for(let da of this.datosUsuario){
+        if(da.nomUsuario==da.nomUsuario){
+          let nombreUser=da.nomUsuario;
+          console.log(nombreUser)
+        }
+      }
+
+    })
+/*     if(localStorage.getItem('ingresado')){
+      return true;
+      let data =JSON.parse(localStorage.getItem('infoUsuario'));
+      console.log(data)
+    }
+    else{
+      return false;
+    } */
+    
   }
   mostrarMenu() {
     this.menuController.open('first');
@@ -31,9 +55,8 @@ export class InicioPage implements OnInit {
     console.log(localStorage)
   }
 
-  datito = [{
-    
-    
-  }]
+  
+  
+
 
 }

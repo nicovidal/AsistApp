@@ -16,7 +16,8 @@ export class FeriadoPage implements OnInit {
   
   ngOnInit() {
     this.feriadoService.getTopHeadLines().subscribe(resp => 
-      {this.feriado = resp ;
+      {
+        this.feriado = resp ;
 
   });
   };

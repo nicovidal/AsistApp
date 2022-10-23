@@ -9,10 +9,14 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"
-          *ngFor="let fe of feriado; let i4=index">
+          *ngFor="let fe of feriado; let i=index">
           <ion-card>
               <p>      
-                {{fe.nombre}}        
+                {{fe.nombre}}
+                {{fe.fecha}}
+                {{fe.irrenunciable}}
+                {{fe.tipo}}
+
               </p>
           </ion-card>
       </ion-col>
