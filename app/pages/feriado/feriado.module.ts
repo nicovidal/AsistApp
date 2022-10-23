@@ -8,12 +8,15 @@ import { FeriadoPageRoutingModule } from './feriado-routing.module';
 
 import { FeriadoPage } from './feriado.page';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FeriadoPageRoutingModule
+    FeriadoPageRoutingModule,
+    NgxDatatableModule
   ],
   declarations: [FeriadoPage]
 })
