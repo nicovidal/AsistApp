@@ -1,5 +1,4 @@
-
-  export interface Article {
+ export interface Article {
     articles: Article[]; 
     nombre: string;
     comentarios: string;
