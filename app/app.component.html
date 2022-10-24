@@ -6,7 +6,7 @@
             </ion-toolbar>
         </ion-header>
         <ion-content>
-            <ion-list>
+            <ion-list >
                 <ion-menu-toggle *ngFor="let c of componenteAlumno">
                     <ion-item [routerLink]="c.redirecTo" detail=true>
                         <ion-icon slot="start" [name]="c.icon" color="primary"></ion-icon>
@@ -15,7 +15,7 @@
                 </ion-menu-toggle>
             </ion-list>
 
-            <ion-list>
+            <ion-list >
                 <ion-menu-toggle *ngFor="let c of componenteProfesor">
                     <ion-item [routerLink]="c.redirecTo" detail=true>
                         <ion-icon slot="start" [name]="c.icon" color="primary"></ion-icon>

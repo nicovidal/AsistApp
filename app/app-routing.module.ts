@@ -13,15 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule),canActivate: [IngresadoGuard]
+    loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule), canActivate: [IngresadoGuard]
   },
   {
     path: 'asist-qr',
-    loadChildren: () => import('./pages/asist-qr/asist-qr.module').then(m => m.AsistQRPageModule), canActivate: [IngresadoGuard,ProfesorGuard]
+    loadChildren: () => import('./pages/asist-qr/asist-qr.module').then(m => m.AsistQRPageModule), canActivate: [IngresadoGuard, ProfesorGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),canActivate:[NoIngresadoGuard]
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule), canActivate: [NoIngresadoGuard]
   },
   {
     path: 'splash',
@@ -30,23 +30,23 @@ const routes: Routes = [
 
   {
     path: 'datos',
-    loadChildren: () => import('./pages/datos/datos.module').then(m => m.DatosPageModule),canActivate: [IngresadoGuard]
+    loadChildren: () => import('./pages/datos/datos.module').then(m => m.DatosPageModule), canActivate: [IngresadoGuard]
   },
   {
     path: 'registro',
-    loadChildren: () => import('./pages/registro/registro.module').then(m => m.RegistroPageModule),canActivate:[NoIngresadoGuard]
+    loadChildren: () => import('./pages/registro/registro.module').then(m => m.RegistroPageModule), canActivate: [NoIngresadoGuard]
   },
   {
     path: 'asistencia-alumno',
-    loadChildren: () => import('./pages/asistencia-alumno/asistencia-alumno.module').then(m => m.AsistenciaAlumnoPageModule),canActivate: [IngresadoGuard,AlumnoGuard]
+    loadChildren: () => import('./pages/asistencia-alumno/asistencia-alumno.module').then(m => m.AsistenciaAlumnoPageModule), canActivate: [IngresadoGuard, AlumnoGuard]
   },
   {
     path: 'scanner',
-    loadChildren: () => import('./pages/scanner/scanner.module').then(m => m.ScannerPageModule),canActivate: [IngresadoGuard,AlumnoGuard]
+    loadChildren: () => import('./pages/scanner/scanner.module').then(m => m.ScannerPageModule), canActivate: [IngresadoGuard, AlumnoGuard]
   },
   {
     path: 'feriado',
-    loadChildren: () => import('./pages/feriado/feriado.module').then(m => m.FeriadoPageModule),canActivate: [IngresadoGuard]
+    loadChildren: () => import('./pages/feriado/feriado.module').then(m => m.FeriadoPageModule), canActivate: [IngresadoGuard]
   },
 
 ];

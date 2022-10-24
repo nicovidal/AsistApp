@@ -55,8 +55,12 @@ export class RegistroserviceService {
   
 
   async getOnlyOneUser(){
-    if(localStorage.getItem('infoUsuario')){
-    return this.storage.get(USERS_KEY);
+    const nombre= localStorage.getItem('infoUsuario');
+    console.log(nombre)
+    if(nombre){
+    const algo=await this.storage.get(USERS_KEY)
+    const usuario=algo.findIndex(a=>a.nomUsuario===nombre)
+    return algo[usuario];
   }
 
 }

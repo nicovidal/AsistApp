@@ -10,8 +10,9 @@
 </ion-header>
 <ion-content>
     <ion-card>
-        <ion-card-content *ngFor="let dato of datosUsuario">
-            <ion-label>Bienvenid@ {{dato.tipoUsuario}} {{dato.nomUsuario}}</ion-label><br>
+        <ion-card-title > Bienvenid@ </ion-card-title>
+        <ion-card-content>
+            <ion-label>{{datosUsuario?.tipoUsuario}} {{datosUsuario?.nomUsuario}}</ion-label><br>
         </ion-card-content>
     </ion-card>
     <br>

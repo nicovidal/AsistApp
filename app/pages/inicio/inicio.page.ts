@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 
@@ -16,30 +16,31 @@ interface Componente {
 })
 
 
-export class InicioPage implements OnInit {
+export class InicioPage implements OnInit  {
 
-  datosUsuario: Usuario[] = [];
+  datosUsuario: Usuario;
 
   constructor(private menuController: MenuController, private registroService: RegistroserviceService) { }
 
   ngOnInit() {
-    this.registroService.getOnlyOneUser().then(datos=>{
-      this.datosUsuario=datos;
-      if (!datos || datos.length==0){
+    
+     this.registroService.getOnlyOneUser().then(datos => {
+      this.datosUsuario = datos;
+      if (!datos || datos.length == 0) {
         return null;
       }
-      for(let da of this.datosUsuario){
-        if(da.nomUsuario==da.nomUsuario){
-          let nombreUser=da.nomUsuario;
-          console.log(nombreUser)
-        }
-      }
-
-    })
     
+        let nombreUser = this.datosUsuario.nomUsuario;
+ 
+    }).catch(err=>console.error(err))
+
+ 
   }
+
+
+  
   mostrarMenu() {
-    this.menuController.open('first');
+    this.menuController.open('first');    
   }
 
   logout() {
@@ -48,7 +49,7 @@ export class InicioPage implements OnInit {
   }
 
   
-  
+
 
 
 }
