@@ -36,14 +36,6 @@ export class InicioPage implements OnInit {
       }
 
     })
-/*     if(localStorage.getItem('ingresado')){
-      return true;
-      let data =JSON.parse(localStorage.getItem('infoUsuario'));
-      console.log(data)
-    }
-    else{
-      return false;
-    } */
     
   }
   mostrarMenu() {

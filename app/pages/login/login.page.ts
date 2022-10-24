@@ -37,11 +37,11 @@ export class LoginPage implements OnInit {
       }
       for (let obj of this.usuarios){
         if (f.correo == obj.correoUsuario && f.password==obj.passUsuario ){
-          a=1;
-     
+          a=1;     
           localStorage.setItem('ingresado','true');
-          localStorage.setItem('infoUsuario',JSON.stringify(datos))
+          localStorage.setItem('infoUsuario',obj.nomUsuario)
           this.navController.navigateRoot('inicio');
+          
           if(obj.tipoUsuario=='alumno'){
             localStorage.setItem('esAlumno','true');
           }
