@@ -13,7 +13,7 @@ export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
-  passwordPtn ='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$'
+  
   
 
   constructor(private alertController: AlertController,
@@ -30,7 +30,8 @@ export class RegistroPage implements OnInit {
 
     })
   }
-
+  passwordPtn ='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$'
+  registerArray:any={}
   ngOnInit() {
   }
 
