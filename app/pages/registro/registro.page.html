@@ -20,10 +20,9 @@
                 </ion-item>
                 <ion-list>
                     <ion-item>
-                        <ion-select formControlName="tipo" [compareWith]="compareWith" placeholder="Tipo" (ionChange)="handleChange($event)">
+                        <ion-select formControlName="tipo" placeholder="Tipo" (ionChange)="handleChange($event)">
                             <ion-select-option value="profesor">Profesor</ion-select-option>
                             <ion-select-option value="alumno">Alumno</ion-select-option>
-
                             <!-- <ion-select-option *ngFor="let tipo of tipos" [value]="tipo" >{{ tipo.name }}</ion-select-option> -->
                         </ion-select>
                     </ion-item>

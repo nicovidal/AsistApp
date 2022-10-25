@@ -77,12 +77,9 @@ export class RegistroPage implements OnInit {
 
   tipoUsuario = undefined;
 
-  compareWith(o1, o2) {
-    return o1 && o2 ? o1.id === o2.id : o1 === o2;
-  }
-
   handleChange(ev) {
     this.tipoUsuario = ev.target.value;
+    console.log(this.tipoUsuario)
   }
 
  

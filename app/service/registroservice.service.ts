@@ -14,7 +14,7 @@ export interface Usuario{
 
 
 const USERS_KEY = 'my-usuarios';
-const nombre = null
+
 
 
 
