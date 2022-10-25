@@ -8,12 +8,13 @@ import { FeriadoPageRoutingModule } from './feriado-routing.module';
 
 import { FeriadoPage } from './feriado.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FeriadoPageRoutingModule
+    FeriadoPageRoutingModule,
   ],
   declarations: [FeriadoPage]
 })

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { Article } from '../../interfaces/interfaces';
 import { FeriadoService } from '../../service/feriado.service';
+
 
 @Component({
   selector: 'app-feriado',
@@ -11,9 +13,9 @@ export class FeriadoPage implements OnInit {
 
   feriado: Article[] = [];
 
-  constructor(private feriadoService: FeriadoService) { }
+  constructor(private menuController: MenuController, private feriadoService: FeriadoService) { }
 
-  
+
   ngOnInit() {
     this.feriadoService.getTopHeadLines().subscribe(resp => 
       {
@@ -22,4 +24,8 @@ export class FeriadoPage implements OnInit {
   });
   };
 
+  mostrarMenu()
+  {
+    this.menuController.open('first');
+  }
 }
