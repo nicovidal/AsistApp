@@ -54,14 +54,19 @@ export class RegistroPage implements OnInit {
     else {
       this.newUsuario.nomUsuario = form.nombre;
       this.newUsuario.apeUsuario = form.apellido;
-      this.newUsuario.correoUsuario = form.correo;
+      this.newUsuario.correoUsuario = form.correo;  
       this.newUsuario.tipoUsuario = form.tipo;
       this.newUsuario.passUsuario = form.password;
       this.newUsuario.repassUsuario = form.confirmaPass;
       this.registroService.addUsuario(this.newUsuario).then(dato => {
+      if(form.correo===this.registroService.getUsuarios()){
+        this.alertYaRegistrada();
+      }else{
         this.newUsuario = <Usuario>{};
         this.showToast('Cuenta Registada!');
+      }     
       });
+ 
       this.formularioRegistro.reset();
     }
   }
@@ -74,6 +79,16 @@ export class RegistroPage implements OnInit {
     })
     await alert.present();
   }
+
+  async alertYaRegistrada() {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: 'Usuario ya existe',
+      buttons: ['Aceptar']
+    })
+    await alert.present();
+  }
+
 
   async showToast(msg) {
     const toast = await this.toast.create({
