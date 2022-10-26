@@ -65,8 +65,14 @@ export class RegistroPage implements OnInit {
       this.newUsuario.repassUsuario = form.confirmaPass;
       this.registroService.getUsuarios().then(datoMail => {
         this.usuarioMail = datoMail;
+      if(datoMail===null){
+        this.registroService.addUsuario(this.newUsuario).then(dato=>{
+          this.newUsuario=<Usuario>{};
+          this.showToast('Cuenta Creada con existo')
+        })
+      }else{
         for (let meil of this.usuarioMail) {
-          if (meil.correoUsuario === form.correo) {
+          if (meil.correoUsuario === form.correo && meil.correoUsuario) {
             this.alertYaRegistrada();
             return;
           } else {
@@ -76,24 +82,9 @@ export class RegistroPage implements OnInit {
             })
           }
         }
+      }
       })
       this.formularioRegistro.reset();
-      /*       this.registroService.getUsuarios().then(datoMail => {
-              this.usuarioMail = datoMail;
-              for (let obj of this.usuarioMail) {
-                if (obj.correoUsuario===this.newUsuario.correoUsuario) {
-                  this.alertYaRegistrada();
-                  return;
-                }else{
-                  this.registroService.addUsuario(this.newUsuario).then(dato => {     
-                    this.newUsuario = <Usuario>{};
-                    this.showToast('Cuenta Registada!');
-                  })       
-                }
-             })
-      
-            
-          } */
     }
   }
 
