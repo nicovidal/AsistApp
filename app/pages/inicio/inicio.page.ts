@@ -29,7 +29,7 @@ export class InicioPage implements OnInit  {
       if (!datos || datos.length == 0) {
         let nombreUser = this.datosUsuario.nomUsuario;
         console.log(nombreUser)
-        return null;
+        return nombreUser;
       } ;
        
        

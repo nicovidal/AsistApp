@@ -34,11 +34,9 @@ export class RegistroPage implements OnInit {
   }
 
   errors=[
-    {type:'required',message:'nombre no puede estar vacio'},
-    {type:'maxlength',message:'nombre no puede tener mas de 8 caracteres'},
-    {type:'minlength',message:'nombre no puede tener menos de 4 caracteres'}
-
-    
+    {type:'required',message:'No puede estar vacio'},
+    {type:'maxlength',message:'No puede tener mas de 8 caracteres'},
+    {type:'minlength',message:'No puede tener menos de 4 caracteres'}  
   ]
 
   ngOnInit() {
