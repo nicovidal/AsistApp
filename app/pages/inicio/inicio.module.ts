@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
+import { RegistroserviceService } from '../../service/registroservice.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { InicioPage } from './inicio.page';
     IonicModule,
     InicioPageRoutingModule
   ],
+  providers:[RegistroserviceService],
   declarations: [InicioPage]
 })
 export class InicioPageModule {}

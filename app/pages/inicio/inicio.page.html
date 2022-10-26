@@ -12,12 +12,12 @@
     <ion-card>
         <ion-card-title > Bienvenid@ </ion-card-title>
         <ion-card-content>
-            <ion-label event="nombre()">{{datosUsuario?.tipoUsuario}} {{datosUsuario?.nomUsuario}}</ion-label><br>
+            <ion-label>{{datosUsuario?.tipoUsuario}} {{datosUsuario?.nomUsuario}}</ion-label><br>
         </ion-card-content>
     </ion-card>
     <br>
     <div class="logout">
-        <ion-button size="default" (click)="logout()" routerLink="/login" color="primary" shape="round">
+        <ion-button size="default" (click)="logout()"  color="primary" shape="round">
             Logout
         </ion-button>
     </div>

@@ -24,17 +24,8 @@ export class AppComponent {
   
 
 
-  constructor(private registroService: RegistroserviceService) { }
+  constructor() { }
 
-   tipo() {
-    this.registroService.getOnlyOneUser().then(datos => {
-      this.dato = datos;
-      if (!datos || datos.length == 0) {
-        return null;
-      }
-
-    })
-  } 
  
 
   componenteAlumno: Componente[] =localStorage.getItem('esAlumno')? [

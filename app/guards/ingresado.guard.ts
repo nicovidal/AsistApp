@@ -8,20 +8,20 @@ import { NavController } from '@ionic/angular';
 })
 export class IngresadoGuard implements CanActivate {
 
-  constructor(private navController: NavController){}
+  constructor(private navController: NavController) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem('ingresado')){
-      return true; 
+    if (localStorage.getItem('ingresado')) {
+      return true;
     }
-    else{
+    else {
       this.navController.navigateRoot('login');
       return false;
     }
-     
+
   }
-  
+
 }
 

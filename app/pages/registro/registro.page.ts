@@ -14,6 +14,8 @@ export class RegistroPage implements OnInit {
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
   valueFromUser:any;
+  registerArray:any={};
+  regArry:any={};
 
 
 
@@ -38,6 +40,8 @@ export class RegistroPage implements OnInit {
     {type:'maxlength',message:'No puede tener mas de 8 caracteres'},
     {type:'minlength',message:'No puede tener menos de 4 caracteres'}  
   ]
+
+  passwordPtn ='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$'
 
   ngOnInit() {
   }
