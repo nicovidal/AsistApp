@@ -2,31 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 import { ToastController } from '@ionic/angular';
-import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import { Router }from '@angular/router';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
+
+
 export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
-  valueFromUser:any;
-  registerArray:any={};
-  regArry:any={};
+  valueFromUser: any;
+  registerArray: any = {};
+  regArry: any = {};
+  usuarioMail: Usuario[];
 
 
 
-  constructor(private router:Router,private alertController: AlertController,
+
+
+  constructor(private router: Router, private alertController: AlertController,
     private registroService: RegistroserviceService,
     private toast: ToastController,
-    private fb: FormBuilder) 
-    {
+    private fb: FormBuilder) {
     this.formularioRegistro = this.fb.group({
-      'nombre': new FormControl("",[Validators.required,Validators.minLength(4),Validators.maxLength(8)]),
-      'apellido': new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(8)]),
+      'nombre': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
+      'apellido': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
       'correo': new FormControl("", Validators.required),
       'tipo': new FormControl("", Validators.required),
       'password': new FormControl("", Validators.required),
@@ -35,13 +40,13 @@ export class RegistroPage implements OnInit {
     })
   }
 
-  errors=[
-    {type:'required',message:'No puede estar vacio'},
-    {type:'maxlength',message:'No puede tener mas de 8 caracteres'},
-    {type:'minlength',message:'No puede tener menos de 4 caracteres'}  
+  errors = [
+    { type: 'required', message: 'No puede estar vacio' },
+    { type: 'maxlength', message: 'No puede tener mas de 8 caracteres' },
+    { type: 'minlength', message: 'No puede tener menos de 4 caracteres' }
   ]
 
-  passwordPtn ='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$'
+
 
   ngOnInit() {
   }
@@ -54,20 +59,41 @@ export class RegistroPage implements OnInit {
     else {
       this.newUsuario.nomUsuario = form.nombre;
       this.newUsuario.apeUsuario = form.apellido;
-      this.newUsuario.correoUsuario = form.correo;  
+      this.newUsuario.correoUsuario = form.correo;
       this.newUsuario.tipoUsuario = form.tipo;
       this.newUsuario.passUsuario = form.password;
       this.newUsuario.repassUsuario = form.confirmaPass;
-      this.registroService.addUsuario(this.newUsuario).then(dato => {
-      if(form.correo===this.registroService.getUsuarios()){
-        this.alertYaRegistrada();
-      }else{
-        this.newUsuario = <Usuario>{};
-        this.showToast('Cuenta Registada!');
-      }     
-      });
- 
+      this.registroService.getUsuarios().then(datoMail => {
+        this.usuarioMail = datoMail;
+        for (let meil of this.usuarioMail) {
+          if (meil.correoUsuario === form.correo) {
+            this.alertYaRegistrada();
+            return;
+          } else {
+            this.registroService.addUsuario(this.newUsuario).then(dato => {
+              this.newUsuario = <Usuario>{};
+              this.showToast('Cuenta Creada con Existo!')
+            })
+          }
+        }
+      })
       this.formularioRegistro.reset();
+      /*       this.registroService.getUsuarios().then(datoMail => {
+              this.usuarioMail = datoMail;
+              for (let obj of this.usuarioMail) {
+                if (obj.correoUsuario===this.newUsuario.correoUsuario) {
+                  this.alertYaRegistrada();
+                  return;
+                }else{
+                  this.registroService.addUsuario(this.newUsuario).then(dato => {     
+                    this.newUsuario = <Usuario>{};
+                    this.showToast('Cuenta Registada!');
+                  })       
+                }
+             })
+      
+            
+          } */
     }
   }
 
@@ -94,12 +120,12 @@ export class RegistroPage implements OnInit {
     const toast = await this.toast.create({
       message: msg,
       duration: 1000,
-      
+
     })
     await toast.present();
-    setTimeout(()=>{
+    setTimeout(() => {
       this.router.navigateByUrl('login');
-    },1000);
+    }, 1000);
   }
 
 
@@ -110,6 +136,6 @@ export class RegistroPage implements OnInit {
     console.log(this.tipoUsuario)
   }
 
- 
+
 }
 

@@ -39,7 +39,7 @@ export class RegistroserviceService {
   async addUsuario(dato: Usuario): Promise<any> {
     return this.storage.get(USERS_KEY).then((datos: Usuario[]) => {
       if (datos) {
-        datos.push(dato);    //agregamos un objeto al storage
+        datos.push(dato);    
         return this.storage.set(USERS_KEY, datos);
       }
       else {
@@ -48,7 +48,7 @@ export class RegistroserviceService {
     })
   }
 
-  //obtener todos los objetos desde el storage 
+ 
   async getUsuarios(): Promise<Usuario[]> {
     return this.storage.get(USERS_KEY);
   }
@@ -66,6 +66,7 @@ export class RegistroserviceService {
     
   }
   
+
 }
 
 
