@@ -39,14 +39,17 @@ export class LoginPage implements OnInit {
         if (f.correo == obj.correoUsuario && f.password==obj.passUsuario ){
           a=1;     
           localStorage.setItem('ingresado','true');
-          localStorage.setItem('infoUsuario',obj.nomUsuario)
-          this.navController.navigateRoot('inicio');          
+          localStorage.setItem('infoUsuario',obj.nomUsuario)    
           if(obj.tipoUsuario=='alumno'){
             localStorage.setItem('esAlumno','true');
+            this.navController.navigateRoot('menu-alumno'); 
           }
-          else(
+          if(obj.tipoUsuario=='profesor'){
             localStorage.setItem('esProfesor','true')
-          )
+            this.navController.navigateRoot('menu-profesor');      
+          }
+                 
+          
         }
       }
       if(a==0){

@@ -47,7 +47,16 @@ const routes: Routes = [
   {
     path: 'feriado',
     loadChildren: () => import('./pages/feriado/feriado.module').then(m => m.FeriadoPageModule), canActivate: [IngresadoGuard]
+  },  {
+    path: 'menu-alumno',
+    loadChildren: () => import('./pages/menu-alumno/menu-alumno.module').then( m => m.MenuAlumnoPageModule)
   },
+  {
+    path: 'menu-profesor',
+    loadChildren: () => import('./pages/menu-profesor/menu-profesor.module').then( m => m.MenuProfesorPageModule)
+  },
+
+
 
 ];
 

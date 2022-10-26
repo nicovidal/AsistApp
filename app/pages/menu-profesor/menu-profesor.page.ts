@@ -1,5 +1,5 @@
-import { Component , OnInit} from '@angular/core';
-import { RegistroserviceService, Usuario } from '../../src/app/service/registroservice.service';
+import { Component, OnInit } from '@angular/core';
+
 
 interface Componente {
   icon: string;
@@ -7,27 +7,16 @@ interface Componente {
   redirecTo: string;
 }
 
-
-
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  selector: 'app-menu-profesor',
+  templateUrl: './menu-profesor.page.html',
+  styleUrls: ['./menu-profesor.page.scss'],
 })
+export class MenuProfesorPage {
 
-
-
-export class AppComponent {
-
-  dato: Usuario[];
-
-  
   constructor() { }
 
- 
-
-
-  componenteProfesor: Componente[] = localStorage.getItem('esProfesor')? [
+  componenteProfesor:Componente[]=[
     {
       icon: 'wifi-outline',
       name: 'Inicio',
@@ -49,7 +38,9 @@ export class AppComponent {
       name: 'Feriados',
       redirecTo: '/feriado'
     },
-  ]:[]
+  ]
+
+
 
 
 }
