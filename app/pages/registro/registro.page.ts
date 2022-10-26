@@ -13,15 +13,18 @@ export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
+  valueFromUser:any;
+
 
 
   constructor(private router:Router,private alertController: AlertController,
     private registroService: RegistroserviceService,
     private toast: ToastController,
-    private fb: FormBuilder) {
+    private fb: FormBuilder) 
+    {
     this.formularioRegistro = this.fb.group({
-      'nombre': new FormControl("", Validators.required),
-      'apellido': new FormControl("", Validators.required),
+      'nombre': new FormControl("",[Validators.required,Validators.minLength(4),Validators.maxLength(8)]),
+      'apellido': new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(8)]),
       'correo': new FormControl("", Validators.required),
       'tipo': new FormControl("", Validators.required),
       'password': new FormControl("", Validators.required),
@@ -29,6 +32,14 @@ export class RegistroPage implements OnInit {
 
     })
   }
+
+  errors=[
+    {type:'required',message:'nombre no puede estar vacio'},
+    {type:'maxlength',message:'nombre no puede tener mas de 8 caracteres'},
+    {type:'minlength',message:'nombre no puede tener menos de 4 caracteres'}
+
+    
+  ]
 
   ngOnInit() {
   }

@@ -23,17 +23,17 @@ export class InicioPage implements OnInit  {
   constructor(private menuController: MenuController, private registroService: RegistroserviceService) { }
 
   ngOnInit() {
-    
-     this.registroService.getOnlyOneUser().then(datos => {
-      this.datosUsuario = datos;
-      if (!datos || datos.length == 0) {
-        return null;
-      }
-    
-        let nombreUser = this.datosUsuario.nomUsuario;
- 
-    }).catch(err=>console.error(err))
 
+    this.registroService.getOnlyOneUser().then(datos => {
+      this.datosUsuario =datos;
+      if (!datos || datos.length == 0) {
+        let nombreUser = this.datosUsuario.nomUsuario;
+        console.log(nombreUser)
+        return null;
+      } ;
+       
+       
+    }).catch(err=>console.error(err))
  
   }
 
@@ -48,8 +48,8 @@ export class InicioPage implements OnInit  {
     console.log(localStorage)
   }
 
-  
 
 
+ 
 
 }

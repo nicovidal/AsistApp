@@ -37,7 +37,7 @@ export class AppComponent {
   } 
  
 
-  componenteAlumno: Componente[] =  localStorage.getItem('esAlumno')? [
+  componenteAlumno: Componente[] =localStorage.getItem('esAlumno')? [
     {
       icon: 'wifi-outline',
       name: 'Inicio',
