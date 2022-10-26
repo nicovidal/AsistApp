@@ -22,29 +22,6 @@ export class AppComponent {
   
   constructor() { }
 
-  componenteAlumno:Componente[]=[
-    {
-      icon: 'wifi-outline',
-      name: 'Inicio',
-      redirecTo: '/menu-alumno'
-    },
-    {
-      icon: 'book-outline',
-      name: 'Modificar Datos',
-      redirecTo: '/datos'
-    },
-    {
-      icon: 'documents-outline',
-      name: 'Asistencia',
-      redirecTo: '/asistencia-alumno'
-    },
-  
-    {
-      icon: 'calendar-number-outline',
-      name: 'Feriados',
-      redirecTo: '/feriado'
-    },
-  ]
 
   componenteProfesor: Componente[] =  [
     {
@@ -72,3 +49,26 @@ export class AppComponent {
 
 
 }
+/*   componenteAlumno:Componente[]=[
+    {
+      icon: 'wifi-outline',
+      name: 'Inicio',
+      redirecTo: '/menu-alumno'
+    },
+    {
+      icon: 'book-outline',
+      name: 'Modificar Datos',
+      redirecTo: '/datos'
+    },
+    {
+      icon: 'documents-outline',
+      name: 'Asistencia',
+      redirecTo: '/asistencia-alumno'
+    },
+  
+    {
+      icon: 'calendar-number-outline',
+      name: 'Feriados',
+      redirecTo: '/feriado'
+    },
+  ] */

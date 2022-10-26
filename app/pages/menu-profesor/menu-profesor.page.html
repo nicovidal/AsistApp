@@ -9,12 +9,13 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
+    <img alt="" src="assets/teacher.png" />
     <ion-card>
-        <ion-card-title > Bienvenid@ </ion-card-title>
-        <ion-card-content>
-            <ion-label>{{datosUsuario?.tipoUsuario}} {{datosUsuario?.nomUsuario}}</ion-label><br>
-        </ion-card-content>
-    </ion-card>
+        <ion-card-header>
+          <ion-card-title >Bienvenid@ </ion-card-title>
+          <ion-card-subtitle><h1>{{datosUsuario?.nomUsuario}}</h1> </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
     <br>
     <div class="logout">
         <ion-button size="default" (click)="logout()"  color="primary" shape="round">
