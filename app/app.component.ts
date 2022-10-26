@@ -1,5 +1,5 @@
-import { Component , OnInit} from '@angular/core';
-import { RegistroserviceService, Usuario } from '../../src/app/service/registroservice.service';
+import { Component} from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 interface Componente {
   icon: string;
@@ -17,10 +17,11 @@ interface Componente {
 
 export class AppComponent {
 
-  dato: Usuario[];
 
   
-  constructor() { }
+  constructor() {
+
+   }
 
 
   componenteProfesor: Componente[] =  [
@@ -47,9 +48,7 @@ export class AppComponent {
     },
   ]
 
-
-}
-/*   componenteAlumno:Componente[]=[
+  componenteAlumno: Componente[] = [
     {
       icon: 'wifi-outline',
       name: 'Inicio',
@@ -71,4 +70,5 @@ export class AppComponent {
       name: 'Feriados',
       redirecTo: '/feriado'
     },
-  ] */
+  ] 
+}

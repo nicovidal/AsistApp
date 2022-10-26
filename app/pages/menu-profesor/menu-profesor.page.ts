@@ -3,33 +3,30 @@ import { MenuController, NavController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 
 
-interface Componente {
-  icon: string;
-  name: string;
-  redirecTo: string;
-}
 
 @Component({
   selector: 'app-menu-profesor',
   templateUrl: './menu-profesor.page.html',
   styleUrls: ['./menu-profesor.page.scss'],
 })
-export class MenuProfesorPage {
+export class MenuProfesorPage implements OnInit{
 
   datosUsuario: Usuario;
 
-  constructor( private navController:NavController,private menuController: MenuController,private registroService:RegistroserviceService) { }
+  constructor( private navController:NavController,private menuController: MenuController,private registroService:RegistroserviceService) { 
+
+    
+  }
 
   async ngOnInit() {
 
     this.datosUsuario = await this.registroService.getOnlyOneUser();
 
   }
-
-
-
+  
   mostrarMenu() {
     this.menuController.open('second');
+    console.log(this.menuController.get('second'))
   }
 
   logout() {

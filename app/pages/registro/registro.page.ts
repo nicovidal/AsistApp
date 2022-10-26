@@ -21,10 +21,6 @@ export class RegistroPage implements OnInit {
   regArry: any = {};
   usuarioMail: Usuario[];
 
-
-
-
-
   constructor(private router: Router, private alertController: AlertController,
     private registroService: RegistroserviceService,
     private toast: ToastController,
@@ -47,7 +43,6 @@ export class RegistroPage implements OnInit {
   ]
 
 
-
   ngOnInit() {
   }
 
@@ -65,7 +60,7 @@ export class RegistroPage implements OnInit {
       this.newUsuario.repassUsuario = form.confirmaPass;
       this.registroService.getUsuarios().then(datoMail => {
         this.usuarioMail = datoMail;
-      if(datoMail===null){
+      if(!datoMail){
         this.registroService.addUsuario(this.newUsuario).then(dato=>{
           this.newUsuario=<Usuario>{};
           this.showToast('Cuenta Creada con existo')
@@ -119,14 +114,12 @@ export class RegistroPage implements OnInit {
     }, 1000);
   }
 
-
   tipoUsuario = undefined;
 
   handleChange(ev) {
     this.tipoUsuario = ev.target.value;
     console.log(this.tipoUsuario)
   }
-
 
 }
 
