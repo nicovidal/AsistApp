@@ -7,8 +7,6 @@ interface Componente {
   redirecTo: string;
 }
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -24,14 +22,35 @@ export class AppComponent {
   
   constructor() { }
 
- 
-
-
-  componenteProfesor: Componente[] = localStorage.getItem('esProfesor')? [
+  componenteAlumno:Componente[]=[
     {
       icon: 'wifi-outline',
       name: 'Inicio',
-      redirecTo: '/inicio'
+      redirecTo: '/menu-alumno'
+    },
+    {
+      icon: 'book-outline',
+      name: 'Modificar Datos',
+      redirecTo: '/datos'
+    },
+    {
+      icon: 'documents-outline',
+      name: 'Asistencia',
+      redirecTo: '/asistencia-alumno'
+    },
+  
+    {
+      icon: 'calendar-number-outline',
+      name: 'Feriados',
+      redirecTo: '/feriado'
+    },
+  ]
+
+  componenteProfesor: Componente[] =  [
+    {
+      icon: 'wifi-outline',
+      name: 'Inicio',
+      redirecTo: '/menu-profesor'
     },
     {
       icon: 'book-outline',
@@ -49,7 +68,7 @@ export class AppComponent {
       name: 'Feriados',
       redirecTo: '/feriado'
     },
-  ]:[]
+  ]
 
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
+import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 
 interface Componente{
   icon: string;
@@ -12,39 +13,38 @@ interface Componente{
   templateUrl: './menu-alumno.page.html',
   styleUrls: ['./menu-alumno.page.scss'],
 })
-export class MenuAlumnoPage {
+export class MenuAlumnoPage implements OnInit{
 
-  constructor( private menuController: MenuController) { }
+  datosUsuario: Usuario;
+
+  constructor( private navController:NavController,private menuController: MenuController,private registroService:RegistroserviceService) { }
+
+  async ngOnInit() {
+
+    this.datosUsuario = await this.registroService.getOnlyOneUser();
+
+  }
 
 
-  componenteAlumno:Componente[]=[
-    {
-      icon: 'wifi-outline',
-      name: 'Inicio',
-      redirecTo: '/inicio'
-    },
-    {
-      icon: 'book-outline',
-      name: 'Modificar Datos',
-      redirecTo: '/datos'
-    },
-    {
-      icon: 'documents-outline',
-      name: 'Asistencia',
-      redirecTo: '/asistencia-alumno'
-    },
-  
-    {
-      icon: 'calendar-number-outline',
-      name: 'Feriados',
-      redirecTo: '/feriado'
-    },
-  ]
 
   mostrarMenu() {
     this.menuController.open('first');
+ 
   }
 
+  logout() {
+    
+    localStorage.clear();
+    this.navController.navigateRoot('login')
+    console.log(localStorage)
+  }
+
+
+
+
+
+
+ 
 }
 
 

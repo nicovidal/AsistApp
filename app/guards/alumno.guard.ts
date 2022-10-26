@@ -21,7 +21,7 @@ export class AlumnoGuard implements CanActivate {
       return true;
     }
     else {
-      this.navController.navigateRoot('inicio');
+      this.navController.navigateRoot('menu-alumno');
       return false;
 
     }

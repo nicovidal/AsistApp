@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menuAlumno</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+          <ion-icon slot="start" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+  <ion-title>Inicio</ion-title>
+</ion-toolbar>
 <ion-content>
-
+  <ion-card>
+      <ion-card-title > Bienvenid@ </ion-card-title>
+      <ion-card-content>
+          <ion-label>{{datosUsuario?.tipoUsuario}} {{datosUsuario?.nomUsuario}}</ion-label><br>
+      </ion-card-content>
+  </ion-card>
+  <br>
+  <div class="logout">
+      <ion-button size="default" (click)="logout()"  color="primary" shape="round">
+          Logout
+      </ion-button>
+  </div>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+      <ion-button class="botonQr" routerLink="/scanner">
+          <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
+      </ion-button>
+  </ion-toolbar>
+</ion-footer>

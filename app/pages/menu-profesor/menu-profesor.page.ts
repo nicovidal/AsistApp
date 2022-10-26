@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController, NavController } from '@ionic/angular';
+import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 
 
 interface Componente {
@@ -14,33 +16,28 @@ interface Componente {
 })
 export class MenuProfesorPage {
 
-  constructor() { }
+  datosUsuario: Usuario;
 
-  componenteProfesor:Componente[]=[
-    {
-      icon: 'wifi-outline',
-      name: 'Inicio',
-      redirecTo: '/inicio'
-    },
-    {
-      icon: 'book-outline',
-      name: 'Modificar Datos',
-      redirecTo: '/datos'
-    },
+  constructor( private navController:NavController,private menuController: MenuController,private registroService:RegistroserviceService) { }
 
-    {
-      icon: 'apps-outline',
-      name: 'Generar QR',
-      redirecTo: '/asist-qr'
-    },
-    {
-      icon: 'calendar-number-outline',
-      name: 'Feriados',
-      redirecTo: '/feriado'
-    },
-  ]
+  async ngOnInit() {
+
+    this.datosUsuario = await this.registroService.getOnlyOneUser();
+
+  }
 
 
+
+  mostrarMenu() {
+    this.menuController.open('second');
+  }
+
+  logout() {
+    
+    localStorage.clear();
+    this.navController.navigateRoot('login')
+    console.log(localStorage)
+  }
 
 
 }

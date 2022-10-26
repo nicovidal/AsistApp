@@ -11,10 +11,7 @@ const routes: Routes = [
     redirectTo: 'splash',
     pathMatch: 'full'
   },
-  {
-    path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule), canActivate: [IngresadoGuard]
-  },
+
   {
     path: 'asist-qr',
     loadChildren: () => import('./pages/asist-qr/asist-qr.module').then(m => m.AsistQRPageModule), canActivate: [IngresadoGuard, ProfesorGuard]
@@ -47,13 +44,14 @@ const routes: Routes = [
   {
     path: 'feriado',
     loadChildren: () => import('./pages/feriado/feriado.module').then(m => m.FeriadoPageModule), canActivate: [IngresadoGuard]
-  },  {
+  },
+  {
     path: 'menu-alumno',
-    loadChildren: () => import('./pages/menu-alumno/menu-alumno.module').then( m => m.MenuAlumnoPageModule)
+    loadChildren: () => import('./pages/menu-alumno/menu-alumno.module').then( m => m.MenuAlumnoPageModule),canActivate: [IngresadoGuard, AlumnoGuard]
   },
   {
     path: 'menu-profesor',
-    loadChildren: () => import('./pages/menu-profesor/menu-profesor.module').then( m => m.MenuProfesorPageModule)
+    loadChildren: () => import('./pages/menu-profesor/menu-profesor.module').then( m => m.MenuProfesorPageModule) ,canActivate: [IngresadoGuard, ProfesorGuard]
   },
 
 
