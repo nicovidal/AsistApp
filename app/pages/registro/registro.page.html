@@ -62,7 +62,7 @@
                 <ion-item>
                     <ion-label position="floating">Confirmar Contraseña</ion-label>
                     <ion-input type="password" formControlName="confirmaPass" [(ngModel)]="registerArray.confirmaPass"
-                        ngModel name="ngModel"></ion-input>             
+                        ngModel name="ngModel"></ion-input>
                 </ion-item>
                 <span *ngIf="registerArray.password !== registerArray.confirmaPass">Las contraseñas no coinciden</span>
                 <div class="err" *ngFor="let er of errors">
@@ -71,9 +71,6 @@
                         {{er.message}}
                     </div>
                 </div>
-                
-
-
             </form>
             <br>
             <ion-button (click)="CrearUsuario()" [disabled]="formularioRegistro.invalid" expand="block" fill="solid"
