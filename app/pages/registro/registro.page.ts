@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 
 export class RegistroPage implements OnInit {
-
+  
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
   usuarioMail: Usuario[];
@@ -38,6 +38,9 @@ export class RegistroPage implements OnInit {
       })
   }
 
+  registerArray:any={};
+  regArry:any={};
+
   get f() { return this.formularioRegistro.controls }
 
   errors = [
@@ -52,11 +55,10 @@ export class RegistroPage implements OnInit {
   }
 
   MustMatch(controlName: string, matchingControlName: string) {
-
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
-      if (matchingControl.errors && !matchingControl.errors.MustMatch) {
+      if (matchingControl.errors && !matchingControl.errors.MustMatch) { 
         return;
       }
       if (control.valid !== matchingControl.value) {

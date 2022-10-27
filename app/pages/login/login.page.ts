@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
                   'password' : new FormControl ("", Validators.required)                
                 })
               }
-
+  
   ngOnInit() {
   }
 
