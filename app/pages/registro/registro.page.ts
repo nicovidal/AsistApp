@@ -16,48 +16,61 @@ export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
-  valueFromUser: any;
-  registerArray: any = {};
-  regArry: any = {};
   usuarioMail: Usuario[];
+
+  nameApellidoPatern: any = /[a-zA-Z[a-zA-Z]/;
 
   constructor(private router: Router, private alertController: AlertController,
     private registroService: RegistroserviceService,
     private toast: ToastController,
     private fb: FormBuilder) {
     this.formularioRegistro = this.fb.group({
-      'nombre': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
-      'apellido': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
+      'nombre': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(12), Validators.pattern(this.nameApellidoPatern)]),
+      'apellido': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(12), Validators.pattern(this.nameApellidoPatern)]),
       'correo': new FormControl("", Validators.required),
       'tipo': new FormControl("", Validators.required),
-      'password': new FormControl("", Validators.required),
-      'confirmaPass': new FormControl("", Validators.required),
-
+      'password': new FormControl("", [Validators.required, Validators.minLength(4)]),
+      'confirmaPass': new FormControl("", [Validators.required, Validators.minLength(4)]),
     },
-      /*  Validators:this.mustMatch('password','confirmaPass') */
+      {
+        Validators: this.MustMatch('password', 'confirmaPass')
 
-    )
+      })
   }
+
+  get f() { return this.formularioRegistro.controls }
 
   errors = [
     { type: 'required', message: 'No puede estar vacio' },
     { type: 'maxlength', message: 'No puede tener mas de 8 caracteres' },
-    { type: 'minlength', message: 'No puede tener menos de 4 caracteres' }
+    { type: 'minlength', message: 'No puede tener menos de 4 caracteres' },
+    { type: 'pattern', message: 'caracter no permitido' },
   ]
 
 
   ngOnInit() {
   }
 
-  /*  mustMatch(controlName:string,matchingControlName:string){
- 
-     return (formGroup:FormGroup)=>{
-       const control=formGroup
- 
-     }
-   } */
+  MustMatch(controlName: string, matchingControlName: string) {
 
-   async CrearUsuario() {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+      if (matchingControl.errors && !matchingControl.errors.MustMatch) {
+        return;
+      }
+      if (control.valid !== matchingControl.value) {
+
+        matchingControl.setErrors({ MustMatch: true });
+      }
+      else {
+        matchingControl.setErrors(null)
+      }
+
+    }
+  }
+
+  async CrearUsuario() {
     var form = this.formularioRegistro.value;
     if (this.formularioRegistro.invalid) {
       this.alertError();
@@ -71,24 +84,24 @@ export class RegistroPage implements OnInit {
       this.newUsuario.repassUsuario = form.confirmaPass;
       this.registroService.getUsuarios().then(datoMail => {
         this.usuarioMail = datoMail;
-      if(!datoMail){
-        this.registroService.addUsuario(this.newUsuario).then(dato=>{
-          this.newUsuario=<Usuario>{};
-          this.showToast('Cuenta Creada con existo')
-        })
-      }else{
-        for (let meil of this.usuarioMail) {
-          if (meil.correoUsuario == form.correo ) {
-            this.alertYaRegistrada();
-            return;
-          } else {
-            this.registroService.addUsuario(this.newUsuario).then(dato => {
-              this.newUsuario = <Usuario>{};
-              this.showToast('Cuenta Creada con Existo!')
-            })
+        if (!datoMail) {
+          this.registroService.addUsuario(this.newUsuario).then(dato => {
+            this.newUsuario = <Usuario>{};
+            this.showToast('Cuenta Creada con existo')
+          })
+        } else {
+          for (let meil of this.usuarioMail) {
+            if (meil.correoUsuario === form.correo) {
+              this.alertYaRegistrada();
+              return;
+            } else {
+              this.registroService.addUsuario(this.newUsuario).then(dato => {
+                this.newUsuario = <Usuario>{};
+                this.showToast('Cuenta Creada con Existo!')
+              })
+            }
           }
         }
-      }
       })
       this.formularioRegistro.reset();
     }
