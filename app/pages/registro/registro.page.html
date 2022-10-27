@@ -14,7 +14,7 @@
                     <ion-label position="floating">Nombre</ion-label>
                     <ion-input type="text" formControlName="nombre"></ion-input>      
                 </ion-item>
-                <div *ngFor="let er of errors">
+                <div class="err" *ngFor="let er of errors">
                 <div *ngIf="formularioRegistro.get('nombre').hasError(er.type) && (formularioRegistro.get('nombre').touched || formularioRegistro.get('nombre').touched.dirty)  ">
                     {{er.message}}
                 </div>
@@ -23,11 +23,11 @@
                     <ion-label position="floating">Apellido</ion-label>
                     <ion-input type="text" formControlName="apellido"></ion-input>
                 </ion-item>
-                <div *ngFor="let er of errors">
+                <div class="err" *ngFor="let er of errors">
                     <div *ngIf="formularioRegistro.get('apellido').hasError(er.type) && (formularioRegistro.get('apellido').touched || formularioRegistro.get('apellido').touched.dirty)  ">
                         {{er.message}}
                     </div>
-                    </div>
+                </div>
                 <ion-item>
                     <ion-label position="floating">Correo</ion-label>
                     <ion-input type="email" formControlName="correo"></ion-input>
@@ -44,6 +44,7 @@
                     <ion-label position="floating">Contraseña</ion-label>
                     <ion-input type="password" formControlName="password" ></ion-input>
                 </ion-item>
+ 
               
                 <ion-item>
                     <ion-label position="floating">Confirmar Contraseña</ion-label>

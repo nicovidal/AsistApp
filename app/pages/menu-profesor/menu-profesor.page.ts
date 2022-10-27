@@ -23,7 +23,7 @@ export class MenuProfesorPage implements OnInit{
     this.datosUsuario = await this.registroService.getOnlyOneUser();
 
   }
-  
+
   mostrarMenu() {
     this.menuController.open('second');
     console.log(this.menuController.get('second'))

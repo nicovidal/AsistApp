@@ -26,14 +26,17 @@ export class RegistroPage implements OnInit {
     private toast: ToastController,
     private fb: FormBuilder) {
     this.formularioRegistro = this.fb.group({
-      'nombre': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
-      'apellido': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
+      'nombre': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
+      'apellido': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
       'correo': new FormControl("", Validators.required),
       'tipo': new FormControl("", Validators.required),
       'password': new FormControl("", Validators.required),
       'confirmaPass': new FormControl("", Validators.required),
 
-    })
+    },
+      /*  Validators:this.mustMatch('password','confirmaPass') */
+
+    )
   }
 
   errors = [
@@ -46,7 +49,15 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
-  async CrearUsuario() {
+  /*  mustMatch(controlName:string,matchingControlName:string){
+ 
+     return (formGroup:FormGroup)=>{
+       const control=formGroup
+ 
+     }
+   } */
+
+   async CrearUsuario() {
     var form = this.formularioRegistro.value;
     if (this.formularioRegistro.invalid) {
       this.alertError();
@@ -67,7 +78,7 @@ export class RegistroPage implements OnInit {
         })
       }else{
         for (let meil of this.usuarioMail) {
-          if (meil.correoUsuario === form.correo && meil.correoUsuario) {
+          if (meil.correoUsuario == form.correo ) {
             this.alertYaRegistrada();
             return;
           } else {

@@ -7,7 +7,7 @@
         </ion-header>
         <ion-content>
             <ion-list>
-                <ion-menu-toggle *ngFor="let a of componenteAlumno">
+                <ion-menu-toggle  *ngFor="let a of componenteAlumno">
                     <ion-item [routerLink]="a.redirecTo" detail=true>
                         <ion-icon slot="start" [name]="a.icon" color="primary"></ion-icon>
                         {{ a.name }}
