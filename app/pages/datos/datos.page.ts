@@ -19,7 +19,12 @@ export class DatosPage implements OnInit {
 
   ngOnInit() {
   }
+  
   mostrarMenu(){
-    this.menuController.open('first');
+    if(localStorage.getItem('esAlumno')){
+      this.menuController.open('first');
+    }else{
+      this.menuController.open('second')
+    }   
   }
 }

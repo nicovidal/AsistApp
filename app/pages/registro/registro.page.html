@@ -1,13 +1,10 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button 
-        defaultHref="/"
-        color="primary"
-        ></ion-back-button>
-    </ion-buttons>
-    <ion-title>Registro</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Registro Nuevo</ion-title>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-card>
@@ -46,18 +43,15 @@
           <ion-input type="email" formControlName="correo" ></ion-input>
         </ion-item>
 
-       <form #passwordValidation="ngForm" (ngSubmit)="pwdSubmit()"></form>
-       <div>
-        <label for="">Password</label>
-        <input type="password" placeholder="password" name="password"  [(ngModel)]="registerArray.password" #password>
-        <span class="" *ngIf="(Password.touched || passwordValidation.submitted) && Password.errors?.required">Password required</span>
-        <span class="" *ngIf="(Password.touched || passwordValidation.submitted) && Password.errors?.pattern">Password required</span>
-       </div>
+        <ion-item>
+          <ion-label position="floating">Password..</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
 
-        <div>
-          <label for="">Confirm Password</label>
-          <input type="password" placeholder="Re password" name="confirmPassword"  [(ngModel)]="registerArray.confirmpassword" #password>
-        </div>
+        <ion-item>
+          <ion-label position="floating">Confirma Pass..</ion-label>
+          <ion-input type="password" formControlName="confirmaPass"></ion-input>
+        </ion-item>
 
        </form>
        <br>

@@ -20,12 +20,20 @@ export class LoginPage implements OnInit {
               private fb: FormBuilder) { 
                 this.formularioLogin = this.fb.group({ 
                   'correo' : new FormControl("", Validators.required),
-                  'password' : new FormControl ("", Validators.required)                
+                  'password' : new FormControl ("", [Validators.required, Validators.minLength(4)])                
                 })
               }
-
+  
   ngOnInit() {
+
   }
+
+  errors = [
+    { type: 'required', message: 'No puede estar vacio' },
+    { type:'minlength', message:'Contraseña demasiado corta'}
+   
+  ]
+
 
   async Ingresar(){
     var f = this.formularioLogin.value;
@@ -37,17 +45,17 @@ export class LoginPage implements OnInit {
       }
       for (let obj of this.usuarios){
         if (f.correo == obj.correoUsuario && f.password==obj.passUsuario ){
-          a=1;
-     
+          a=1;              
           localStorage.setItem('ingresado','true');
-          localStorage.setItem('infoUsuario',JSON.stringify(datos))
-          this.navController.navigateRoot('inicio');
+          localStorage.setItem('infoUsuario',obj.nomUsuario)    
           if(obj.tipoUsuario=='alumno'){
             localStorage.setItem('esAlumno','true');
+            this.navController.navigateRoot('menu-alumno'); 
           }
-          else(
+          if(obj.tipoUsuario=='profesor'){
             localStorage.setItem('esProfesor','true')
-          )
+            this.navController.navigateRoot('menu-profesor');      
+          }
         }
       }
       if(a==0){
@@ -66,6 +74,7 @@ export class LoginPage implements OnInit {
     return;
   }
 
+ 
   
 
 }

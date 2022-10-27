@@ -24,8 +24,11 @@ export class FeriadoPage implements OnInit {
   });
   };
 
-  mostrarMenu()
-  {
-    this.menuController.open('first');
+  mostrarMenu(){
+    if(localStorage.getItem('esAlumno')){
+      this.menuController.open('first');
+    }else{
+      this.menuController.open('second')
+    }   
   }
 }
