@@ -25,8 +25,9 @@ export class MenuProfesorPage implements OnInit{
   }
 
   mostrarMenu() {
+    this.menuController.enable(true,'second');
     this.menuController.open('second');
-    console.log(this.menuController.get('second'))
+  
   }
 
   logout() {
