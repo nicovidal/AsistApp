@@ -50,7 +50,6 @@ export class RegistroPage implements OnInit {
     { type: 'pattern', message: 'caracter no permitido' },
   ]
 
-
   ngOnInit() {
   }
 
@@ -71,7 +70,6 @@ export class RegistroPage implements OnInit {
 
     }
   }
-
   async CrearUsuario() {
     var form = this.formularioRegistro.value;
     if (this.formularioRegistro.invalid) {

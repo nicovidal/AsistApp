@@ -27,7 +27,7 @@
 </ion-content>
 <ion-footer class="ion-no-border">
     <ion-toolbar>
-        <ion-button class="botonQr" routerLink="/scanner">
+        <ion-button class="botonQr" (click)="scan()">
             <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
         </ion-button>
     </ion-toolbar>
