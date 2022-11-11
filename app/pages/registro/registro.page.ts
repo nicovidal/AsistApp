@@ -29,30 +29,32 @@ export class RegistroPage implements OnInit {
       'apellido': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(12), Validators.pattern(this.nameApellidoPatern)]),
       'correo': new FormControl("", Validators.required),
       'tipo': new FormControl("", Validators.required),
-      'password': new FormControl("", [Validators.required, Validators.minLength(4)]),
-      'confirmaPass': new FormControl("", [Validators.required, Validators.minLength(4)]),
+      'password': new FormControl("",Validators.compose( [Validators.required, Validators.minLength(4)])),
+      'confirmaPass': new FormControl("",Validators.compose([Validators.required, Validators.minLength(4)])),
     },
       {
         Validators: this.MustMatch('password', 'confirmaPass')
-
       })
   }
 
   registerArray:any={};
   regArry:any={};
 
-  get f() { return this.formularioRegistro.controls }
+
+  get f() { 
+    return this.formularioRegistro.controls 
+  }
 
   errors = [
     { type: 'required', message: 'No puede estar vacio' },
     { type: 'maxlength', message: 'No puede tener mas de 8 caracteres' },
     { type: 'minlength', message: 'No puede tener menos de 4 caracteres' },
     { type: 'pattern', message: 'caracter no permitido' },
-  ]
+    { type:'MustMatch',message:'No coinciden'} ,
+  ] 
 
   ngOnInit() {
   }
-
   MustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
@@ -70,6 +72,8 @@ export class RegistroPage implements OnInit {
 
     }
   }
+
+
   async CrearUsuario() {
     var form = this.formularioRegistro.value;
     if (this.formularioRegistro.invalid) {
