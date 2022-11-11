@@ -27,7 +27,6 @@ export class MenuAlumnoPage implements OnInit {
   mostrarMenu() {
     this.menuController.enable(true,'first');
     this.menuController.open('first');
-    console.log(this.menuController.open('first'))
   }
 
   logout() {
