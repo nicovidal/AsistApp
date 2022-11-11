@@ -146,7 +146,6 @@ export class RegistroPage implements OnInit {
 
   handleChange(ev) {
     this.tipoUsuario = ev.target.value;
-    console.log(this.tipoUsuario)
   }
 
 }

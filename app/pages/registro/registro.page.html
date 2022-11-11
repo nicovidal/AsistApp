@@ -9,7 +9,7 @@
 <ion-content>
     <ion-card>
         <ion-card-content>
-            <form [formGroup]="formularioRegistro" (keyup.enter)="CrearUsuario()" >
+            <form [formGroup]="formularioRegistro" (keyup.enter)="CrearUsuario()">
                 <ion-item>
                     <ion-label position="floating">Nombre</ion-label>
                     <ion-input type="text" formControlName="nombre"></ion-input>
@@ -48,7 +48,7 @@
                         </ion-select>
                     </ion-item>
                 </ion-list>
-         <ion-item>
+                <ion-item>
                     <ion-label position="floating">Contraseña</ion-label>
                     <ion-input type="password" formControlName="password" [(ngModel)]="registerArray.password" ngModel
                         name="ngModel"></ion-input>
@@ -70,7 +70,7 @@
                         *ngIf="formularioRegistro.get('confirmaPass').hasError(er.type) && (formularioRegistro.get('confirmaPass').touched || formularioRegistro.get('confirmaPass').touched.dirty)  ">
                         {{er.message}}
                     </div>
-                </div>      
+                </div>
             </form>
             <br>
             <ion-button (click)="CrearUsuario()" [disabled]="formularioRegistro.invalid" expand="block" fill="solid"
