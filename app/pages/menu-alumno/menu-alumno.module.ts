@@ -8,12 +8,15 @@ import { MenuAlumnoPageRoutingModule } from './menu-alumno-routing.module';
 
 import { MenuAlumnoPage } from './menu-alumno.page';
 
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuAlumnoPageRoutingModule
+    MenuAlumnoPageRoutingModule,
+    BarcodeScanner
   ],
   declarations: [MenuAlumnoPage]
 })

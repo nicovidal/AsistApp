@@ -10,6 +10,7 @@ export class ScannerPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

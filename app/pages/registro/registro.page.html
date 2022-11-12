@@ -15,7 +15,8 @@
                     <ion-input type="text" formControlName="nombre"></ion-input>
                 </ion-item>
                 <div class="err" *ngFor="let er of errors">
-                    <div *ngIf="formularioRegistro.get('nombre').hasError(er.type) && (formularioRegistro.get('nombre').touched || formularioRegistro.get('nombre').touched.dirty)  ">
+                    <div
+                        *ngIf="formularioRegistro.get('nombre').hasError(er.type) && (formularioRegistro.get('nombre').touched || formularioRegistro.get('nombre').touched.dirty)  ">
                         {{er.message}}
                     </div>
                 </div>
@@ -24,7 +25,8 @@
                     <ion-input type="text" formControlName="apellido"></ion-input>
                 </ion-item>
                 <div class="err" *ngFor="let er of errors">
-                    <div *ngIf="formularioRegistro.get('apellido').hasError(er.type) && (formularioRegistro.get('apellido').touched || formularioRegistro.get('apellido').touched.dirty)  ">
+                    <div
+                        *ngIf="formularioRegistro.get('apellido').hasError(er.type) && (formularioRegistro.get('apellido').touched || formularioRegistro.get('apellido').touched.dirty)  ">
                         {{er.message}}
                     </div>
                 </div>
@@ -33,7 +35,8 @@
                     <ion-input type="email" formControlName="correo"></ion-input>
                 </ion-item>
                 <div class="err" *ngFor="let er of errors">
-                    <div *ngIf="formularioRegistro.get('correo').hasError(er.type) && (formularioRegistro.get('correo').touched || formularioRegistro.get('correo').touched.dirty)  ">
+                    <div
+                        *ngIf="formularioRegistro.get('correo').hasError(er.type) && (formularioRegistro.get('correo').touched || formularioRegistro.get('correo').touched.dirty)  ">
                         {{er.message}}
                     </div>
                 </div>
@@ -47,10 +50,12 @@
                 </ion-list>
                 <ion-item>
                     <ion-label position="floating">Contraseña</ion-label>
-                    <ion-input type="password" formControlName="password" [(ngModel)]="registerArray.password" ngModel name="ngModel"></ion-input>
+                    <ion-input type="password" formControlName="password" [(ngModel)]="registerArray.password" ngModel
+                        name="ngModel"></ion-input>
                 </ion-item>
                 <div class="err" *ngFor="let er of errors">
-                    <div *ngIf="formularioRegistro.get('password').hasError(er.type) && (formularioRegistro.get('password').touched || formularioRegistro.get('password').touched.dirty)  ">
+                    <div
+                        *ngIf="formularioRegistro.get('password').hasError(er.type) && (formularioRegistro.get('password').touched || formularioRegistro.get('password').touched.dirty)  ">
                         {{er.message}}
                     </div>
                 </div>
@@ -60,13 +65,15 @@
                 </ion-item>
                 <span *ngIf="registerArray.password !== registerArray.confirmaPass">Las contraseñas no coinciden</span>
                 <div class="err" *ngFor="let er of errors">
-                    <div *ngIf="formularioRegistro.get('confirmaPass').hasError(er.type) && (formularioRegistro.get('confirmaPass').touched || formularioRegistro.get('confirmaPass').touched.dirty)  ">
+                    <div
+                        *ngIf="formularioRegistro.get('confirmaPass').hasError(er.type) && (formularioRegistro.get('confirmaPass').touched || formularioRegistro.get('confirmaPass').touched.dirty)  ">
                         {{er.message}}
                     </div>
                 </div>
             </form>
             <br>
-            <ion-button (click)="CrearUsuario()" [disabled]="formularioRegistro.invalid" expand="block" fill="solid" shape="round">
+            <ion-button (click)="CrearUsuario()" [disabled]="formularioRegistro.invalid" expand="block" fill="solid"
+                shape="round">
                 Registrar
             </ion-button>
         </ion-card-content>

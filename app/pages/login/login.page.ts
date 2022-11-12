@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   formularioLogin: FormGroup;
   usuarios : Usuario[] = [];
 
-  constructor(private alertController: AlertController, 
+  constructor(private menuController: MenuController,private alertController: AlertController, 
               private navController: NavController,
               private registroService: RegistroserviceService, 
               private fb: FormBuilder) { 
@@ -25,7 +25,8 @@ export class LoginPage implements OnInit {
               }
   
   ngOnInit() {
-
+    this.menuController.swipeGesture(false,'second');
+    this.menuController.swipeGesture(false,'first');
   }
 
   errors = [
@@ -74,7 +75,5 @@ export class LoginPage implements OnInit {
     return;
   }
 
- 
-  
 
 }
