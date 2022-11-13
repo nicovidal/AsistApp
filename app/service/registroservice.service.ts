@@ -42,10 +42,34 @@ export class RegistroserviceService {
     })
   }
 
+  
+  async actualizar(dato:Usuario):Promise <any>{
+    return this.storage.get(USERS_KEY).then((datos:Usuario[])=>{
+      if(!datos||datos.length==0){
+        return null;
+      }
+      let newDato:Usuario[]=[];
+      for(let i of datos){
+        if(i.correoUsuario===dato.correoUsuario){
+          newDato.push(dato);
+        }
+        else{
+          newDato.push(i)
+        }
+      }
+      return this.storage.set(USERS_KEY,newDato)
+
+
+    });
+    
+  }
+
  
   async getUsuarios(): Promise<Usuario[]> {
     return this.storage.get(USERS_KEY);
   }
+
+
 
 
   async getOnlyOneUser() {
