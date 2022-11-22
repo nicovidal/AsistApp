@@ -10,48 +10,30 @@
 </ion-header>
 <ion-content>
   <form>
-    <ion-item>
+    <ion-item *ngFor="let dato of datos">
       <ion-label>Nombre: </ion-label>
-      <ion-input type="text" placeholder="Usuario"
-                 name="nombre"  >
+      <ion-input type="text" [(ngModel)]="newDato.nomUsuario" name="nombre">{{dato.nomUsuario}}
       </ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Apellido: </ion-label>
-      <ion-input type="text" placeholder="Usuario"
-                 name="apellido"  >
-      </ion-input>
+    <ion-item *ngFor="let dato of datos">
+      <ion-input type="text" [(ngModel)]="newDato.apeUsuario"  name="apellido">{{dato.apeUsuario}} </ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Mail: </ion-label>
-      <ion-input type="text" placeholder="Usuario"
-                 name="apellido"  >
-      </ion-input>
+    <ion-item *ngFor="let dato of datos">
+      <ion-input type="text" [(ngModel)]="newDato.correoUsuario" name="mail"> {{dato.correoUsuario}}</ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Contraseña: </ion-label>
-      <ion-input type="password" placeholder="Usuario"
-                 name="contraseña"  >
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label> Jornada:</ion-label>
-      <ion-input type="text" placeholder="Diurna"
-                 name="Jornada"  >
-      </ion-input>
+    <ion-item *ngFor="let dato of datos">
+      <ion-input type="password" [(ngModel)]="newDato.passUsuario"  name="contraseña">{{dato.passUsuario}}</ion-input>
     </ion-item>
     <br>
-    <ion-button (click)="onClick()" expand="block" type="primary" shape="round">
+    <ion-button (click)="actualizarDatos()" expand="block" type="primary" shape="round">
       Guardar Cambios
     </ion-button>
-
   </form>
-
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar>
     <ion-button class="botonQr" (click)="onClick()" routerLink="/scanner">
-      <ion-icon slot="icon-only"  name="qr-code-outline"></ion-icon>
+      <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-footer>

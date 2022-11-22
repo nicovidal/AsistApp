@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, Platform, ToastController } from '@ionic/angular';
+import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 
 
 interface Componente{
@@ -15,11 +16,42 @@ interface Componente{
 })
 export class DatosPage implements OnInit {
 
-  constructor(private menuController: MenuController) { }
+  datos:Usuario[]=[];
+  newDato:Usuario=<Usuario>{};
+  
+
+
+  constructor(private menuController: MenuController,
+    private registroService:RegistroserviceService,private plt:Platform,
+    private toastController:ToastController) {
+      this.plt.ready().then(()=>{
+        this.loadDatos();
+      })
+     }
 
   ngOnInit() {
   }
   
+  //obtener datos
+  loadDatos(){
+    this.registroService.getUsuarios().then(datos=>{
+      this.datos=datos
+    })
+  }
+
+  //actualizar
+  actualizarDatos(dato:Usuario){
+    dato.nomUsuario=`UPDATE: ${dato.nomUsuario}`;
+    dato.apeUsuario=`UPDATE: ${dato.apeUsuario}`;
+    dato.correoUsuario=`UPDATE: ${dato.correoUsuario}`;
+    dato.passUsuario=`UPDATE: ${dato.passUsuario}`;
+    this.registroService.actualizar(dato).then(item=>{
+      this.showToast('Datos Actualizados')
+      this.loadDatos();
+    })
+    
+  }
+
   mostrarMenu(){
     if(localStorage.getItem('esAlumno')){
       this.menuController.open('first');
@@ -27,4 +59,13 @@ export class DatosPage implements OnInit {
       this.menuController.open('second')
     }   
   }
+
+  async showToast(msg){
+    const toast = await this.toastController.create({
+      message:msg,
+      duration:2000
+    });
+    toast.present();
+  }
+
 }
