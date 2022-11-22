@@ -15,6 +15,9 @@ interface Componente{
 })
 export class AsistQRPage implements OnInit {
 
+  qrCodeString='This is a secret qr code message';
+  scannedResult:any;
+  
   constructor(private menuController : MenuController) { }
 
   ngOnInit() {
@@ -26,4 +29,17 @@ export class AsistQRPage implements OnInit {
       this.menuController.open('second')
     }   
   }
+
+  usuario={
+    nom:'',
+  }
+
+  generaScan(){
+    this.qrCodeString= this.usuario.nom;
+  }
+
+  verScan(){
+    this.scannedResult=this.qrCodeString;
+  }
+
 }
