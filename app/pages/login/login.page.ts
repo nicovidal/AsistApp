@@ -68,6 +68,7 @@ export class LoginPage implements OnInit {
     
 
   }
+  
   async alertMsg(){
     const alert = await this.alertController.create({
       header: 'Error...',

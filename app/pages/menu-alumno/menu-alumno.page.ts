@@ -2,6 +2,7 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+import { AlertController } from '@ionic/angular';
 
 @NgModule({
   declarations:[
@@ -20,8 +21,9 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 export class MenuAlumnoPage implements OnInit {
 
   datosUsuario: Usuario;
-
-  constructor(private barcodeScanner: BarcodeScanner,private navController: NavController, private menuController: MenuController, private registroService: RegistroserviceService) { 
+  datoScaneados:{};
+  constructor(private alertController:AlertController,private barcodeScanner: BarcodeScanner,
+    private navController: NavController, private menuController: MenuController, private registroService: RegistroserviceService) { 
 
   
   }
@@ -31,7 +33,6 @@ export class MenuAlumnoPage implements OnInit {
     this.datosUsuario = await this.registroService.getOnlyOneUser();
 
   }
-
   mostrarMenu() {
     this.menuController.enable(true,'first');
     this.menuController.open('first');
@@ -44,11 +45,22 @@ export class MenuAlumnoPage implements OnInit {
 
   scan(){
     this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+      this.datoScaneados=barcodeData
      }).catch(err => {
          console.log('Error', err);
      });
   }
+
+/*   async alertMsg(this.datodatos){
+    const alert = await this.alertController.create({
+      header: 'Error...',
+      message: ''+datos,
+      buttons: ['Aceptar']
+    })
+    await alert.present();
+    return;
+  }
+   */
 
 }
 

@@ -12,7 +12,6 @@
 <ion-content>
   <ion-card class="ion-text-center">
     <ion-card-content>
-
       <ion-item>
         <ion-select  placeholder="Asignatura" class="fuente2"  [(ngModel)]="usuario.modulo">
           <ion-select-option value="ProgramaciónMovil" class="fuente2">Programación movil</ion-select-option>
@@ -21,6 +20,9 @@
           <ion-select-option value="Ingenieria" class="fuente2"> Ingenieria de Software</ion-select-option>
           <ion-select-option value="Calidad" class="fuente2"> Calidad de software</ion-select-option>
       </ion-select>
+       </ion-item>
+       <ion-item>
+        <h2>{{fechaFormateada}}</h2>
        </ion-item>
 
       <ion-button 
@@ -35,11 +37,8 @@
         [width]="256" 
         [errorCorrectionLevel]="'M'">
       </qrcode>
-
-
     </ion-card-content>
  </ion-card>
-
  <ion-button 
     expand="block" 
     class="ion-margin" 

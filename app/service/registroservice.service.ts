@@ -69,9 +69,6 @@ export class RegistroserviceService {
     return this.storage.get(USERS_KEY);
   }
 
-
-
-
   async getOnlyOneUser() {
     const nombre =localStorage.getItem('infoUsuario');
     if (nombre) {     

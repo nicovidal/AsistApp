@@ -29,7 +29,7 @@ export class AsistQRPage implements OnInit {
 
   ngOnInit() {
    
-    console.log(this.fechaFormateada)
+   this.fechaFormateada
 
   }
   mostrarMenu(){
