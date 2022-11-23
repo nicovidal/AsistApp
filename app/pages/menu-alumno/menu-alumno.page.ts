@@ -6,9 +6,10 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 @NgModule({
   declarations:[
     BarcodeScanner,
-  ]
+  ],
+  imports:[BarcodeScanner,],
+  providers: [BarcodeScanner]
 })
-
 
 
 @Component({
