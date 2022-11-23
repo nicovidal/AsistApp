@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+
+@NgModule({
+  declarations:[
+    BarcodeScanner,
+  ]
+})
+
 
 
 @Component({
