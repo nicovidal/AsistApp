@@ -41,6 +41,7 @@ export class MenuAlumnoPage implements OnInit {
          console.log('Error', err);
      });
   }
+
 }
 
 

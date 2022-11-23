@@ -48,7 +48,8 @@ export class LoginPage implements OnInit {
         if (f.correo == obj.correoUsuario && f.password==obj.passUsuario ){
           a=1;              
           localStorage.setItem('ingresado','true');
-          localStorage.setItem('infoUsuario',obj.nomUsuario)    
+          localStorage.setItem('infoUsuario',obj.nomUsuario) 
+
           if(obj.tipoUsuario=='alumno'){
             localStorage.setItem('esAlumno','true');
             this.navController.navigateRoot('menu-alumno'); 
@@ -56,15 +57,17 @@ export class LoginPage implements OnInit {
           if(obj.tipoUsuario=='profesor'){
             localStorage.setItem('esProfesor','true')
             this.navController.navigateRoot('menu-profesor');      
-          }
+          }       
         }
+       
       }
       if(a==0){
         this.alertMsg();
       }
     })
-  }
+    
 
+  }
   async alertMsg(){
     const alert = await this.alertController.create({
       header: 'Error...',
@@ -74,6 +77,5 @@ export class LoginPage implements OnInit {
     await alert.present();
     return;
   }
-
 
 }

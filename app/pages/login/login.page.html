@@ -4,12 +4,12 @@
             <img src="assets/logo2.png">
         </div>
         <div class="title">
-            <h2> Bienvenido a AsistApp</h2>
+            <h2 class="tituloTest">Bienvenido a AsistApp</h2>
         </div>
         <ion-card-content>
             <form [formGroup]="formularioLogin">
                 <ion-item>
-                    <ion-label position="floating">Correo: </ion-label>
+                    <ion-label class="textoCorreo"position="floating">Correo: </ion-label>
                     <ion-input type="email" formControlName="correo"></ion-input>
                 </ion-item>
                 <div class="err" *ngFor="let er of errors">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <ion-item>
-                    <ion-label position="floating">Password: </ion-label>
+                    <ion-label class="textoPass"position="floating">Password: </ion-label>
                     <ion-input type="password" formControlName="password"></ion-input>
                 </ion-item>
                 <div class="err" *ngFor="let er of errors">
@@ -28,12 +28,12 @@
                 </div>
             </form>
             <br>
-            <ion-button (click)="Ingresar()" expand="block" fill="solid" shape="round">
+            <ion-button class="ingreso"(click)="Ingresar()" expand="block" fill="solid" shape="round">
                 Ingresar
             </ion-button>
         </ion-card-content>
     </ion-card>
     <div class="centro">
-        <ion-label><a [routerLink]="['/registro']">¿ No tienes cuenta?</a></ion-label>
+        <ion-label><a class="noTienes"[routerLink]="['/registro']">¿ No tienes cuenta?</a></ion-label>
     </div>
 </ion-content>

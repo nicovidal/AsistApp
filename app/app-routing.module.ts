@@ -37,10 +37,7 @@ const routes: Routes = [
     path: 'asistencia-alumno',
     loadChildren: () => import('./pages/asistencia-alumno/asistencia-alumno.module').then(m => m.AsistenciaAlumnoPageModule), canActivate: [IngresadoGuard, AlumnoGuard]
   },
-  {
-    path: 'scanner',
-    loadChildren: () => import('./pages/scanner/scanner.module').then(m => m.ScannerPageModule), canActivate: [IngresadoGuard, AlumnoGuard]
-  },
+
   {
     path: 'feriado',
     loadChildren: () => import('./pages/feriado/feriado.module').then(m => m.FeriadoPageModule), canActivate: [IngresadoGuard]

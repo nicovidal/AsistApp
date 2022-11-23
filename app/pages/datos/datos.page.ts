@@ -30,6 +30,8 @@ export class DatosPage implements OnInit {
      }
 
   ngOnInit() {
+
+    
   }
   
   //obtener datos
