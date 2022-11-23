@@ -17,13 +17,13 @@ export class RegistroPage implements OnInit {
   formularioRegistro: FormGroup;
   newUsuario: Usuario = <Usuario>{};
   usuarioMail: Usuario[];
-
   nameApellidoPatern: any = /[a-zA-Z[a-zA-Z]/;
-
-  constructor(private router: Router, private alertController: AlertController,
+  
+  constructor(private alertController: AlertController,
     private registroService: RegistroserviceService,
     private toast: ToastController,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private router: Router,) {
     this.formularioRegistro = this.fb.group({
       'nombre': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(12), Validators.pattern(this.nameApellidoPatern)]),
       'apellido': new FormControl("", [Validators.required, Validators.minLength(4), Validators.maxLength(12), Validators.pattern(this.nameApellidoPatern)]),

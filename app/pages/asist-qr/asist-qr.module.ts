@@ -8,12 +8,15 @@ import { AsistQRPageRoutingModule } from './asist-qr-routing.module';
 
 import { AsistQRPage } from './asist-qr.page';
 
+import { QRCodeModule } from 'angularx-qrcode';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AsistQRPageRoutingModule
+    AsistQRPageRoutingModule,
+    QRCodeModule
   ],
   declarations: [AsistQRPage]
 })
