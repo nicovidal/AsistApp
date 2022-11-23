@@ -14,7 +14,7 @@
     <ion-card-content>
 
       <ion-item>
-        <ion-select  placeholder="Asignatura" class="fuente2"  [(ngModel)]="usuario.nom">
+        <ion-select  placeholder="Asignatura" class="fuente2"  [(ngModel)]="usuario.modulo">
           <ion-select-option value="ProgramaciónMovil" class="fuente2">Programación movil</ion-select-option>
           <ion-select-option value="ProgramaciónBD" class="fuente2">Programación de BD</ion-select-option>
           <ion-select-option value="Programacion Web" class="fuente2"> Programacion Web</ion-select-option>
@@ -48,6 +48,6 @@
   </ion-button>
 
   <ion-item>
-    <ion-label class="ion-text-wrap">Scan Result: {{scannedResult}}</ion-label>
+    <ion-label class="ion-text-wrap">Scan Result: {{scannedResult}} {{scannedResultDate}}</ion-label>
   </ion-item>
 </ion-content>

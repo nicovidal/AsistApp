@@ -16,7 +16,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     FormsModule,
     IonicModule,
     AsistQRPageRoutingModule,
-    QRCodeModule
+    QRCodeModule,
+    
   ],
   declarations: [AsistQRPage]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-
+import {DatePipe}from '@angular/common'
 
 interface Componente{
   icon: string;
@@ -16,11 +16,21 @@ interface Componente{
 export class AsistQRPage implements OnInit {
 
   qrCodeString='This is a secret qr code message';
+  qrFecha= 'string ';
   scannedResult:any;
+  scannedResultDate:any;
+  date=new Date();
+  stringDate:string=this.date.toString()
+  fechaFormateada=this.datepipe.transform(this.stringDate,'dd-MM-YYYY HH:mm')||null;
   
-  constructor(private menuController : MenuController) { }
+
+
+  constructor(private datepipe:DatePipe,private menuController : MenuController) { }
 
   ngOnInit() {
+   
+    console.log(this.fechaFormateada)
+
   }
   mostrarMenu(){
     if(localStorage.getItem('esAlumno')){
@@ -31,15 +41,19 @@ export class AsistQRPage implements OnInit {
   }
 
   usuario={
-    nom:'',
+    modulo:'',
+    fecha:this.stringDate,
   }
 
   generaScan(){
-    this.qrCodeString= this.usuario.nom;
+    this.qrCodeString= this.usuario.modulo;
+    this.qrFecha=this.usuario.fecha;
   }
 
   verScan(){
     this.scannedResult=this.qrCodeString;
+    this.scannedResultDate=this.fechaFormateada;
+
   }
 
 }

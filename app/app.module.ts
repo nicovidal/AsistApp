@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,7 @@ import { Drivers } from '@ionic/storage';
               name: 'mydb',
               driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage]
             }),],
-  providers: [BarcodeScanner,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [BarcodeScanner,DatePipe,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 
