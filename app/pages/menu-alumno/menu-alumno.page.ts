@@ -47,7 +47,7 @@ export class MenuAlumnoPage implements OnInit {
     this.barcodeScanner.scan().then(barcodeData => {
       this.datoScaneados=barcodeData
      }).catch(err => {
-         console.log('Error', err);
+         console.log('Error al escanear', err);
      });
   }
 
