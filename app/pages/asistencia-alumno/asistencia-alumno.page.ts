@@ -19,17 +19,15 @@ export class AsistenciaAlumnoPage implements OnInit {
   asistencia=[];
   datosAsistencia:AsistenciaTomada[]=[];
 
-  constructor(private plt:Platform,private registroService:RegistroserviceService,
+  constructor(
     private menuController: MenuController ,private loadCtrl:LoadingController,
     private asistenciaService:AsistenciaService) { 
-      this.plt.ready().then(()=>{
-        this.loadAsistencia();
-      })
+ 
     }
 
   ngOnInit() {
     this.loadAsistencia();
-    this.loadDataAsist();
+
 
   }
   mostrarMenu(){
@@ -40,11 +38,7 @@ export class AsistenciaAlumnoPage implements OnInit {
     }   
   }
 
-  loadDataAsist(){
-    this.registroService.getAsistencia().then(datosAsistencia=>{
-      this.datosAsistencia=datosAsistencia
-    })
-  }
+
 
   async loadAsistencia(event?:InfiniteScrollCustomEvent){
     const loading = await this.loadCtrl.create({
