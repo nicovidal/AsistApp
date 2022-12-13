@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { AlertController, MenuController, ToastController } from '@ionic/angular';
+import { asitencia, asitenciasAlumno } from '../../interfaces/asistencia';
+import { AsistenciaService } from '../../service/asistencia.service';
 import { RegistroserviceService, AsistenciaTomada } from '../../service/registroservice.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tomar-as',
@@ -12,8 +14,15 @@ import { RegistroserviceService, AsistenciaTomada } from '../../service/registro
 })
 export class TomarAsPage implements OnInit {
 
+  newAsistencia: asitencia = {
+    correo: "",
+    fecha: "",
+    modulo: ""
+  }
 
-  constructor(private menuController: MenuController) {
+  constructor(private menuController: MenuController,
+              private router: Router, 
+              private asistenciaService: AsistenciaService) {
 
   }
 
@@ -29,6 +38,11 @@ export class TomarAsPage implements OnInit {
     }
   }
 
+  crearAsistencia(){
+    this.asistenciaService.crearModulo(this.newAsistencia).subscribe();
+    this.router.navigateByUrl("/tomar-as");
+
+  }
 
 }
 
