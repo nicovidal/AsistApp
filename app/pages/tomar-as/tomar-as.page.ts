@@ -31,13 +31,9 @@ export class TomarAsPage implements OnInit {
   }
 
   mostrarMenu() {
-    if (localStorage.getItem('esAlumno')) {
-      this.menuController.open('first');
-    } else {
-      this.menuController.open('second')
-    }
+    this.menuController.enable(true,'first');
+    this.menuController.open('first');
   }
-
   crearAsistencia(){
     this.asistenciaService.crearModulo(this.newAsistencia).subscribe();
     this.router.navigateByUrl("/tomar-as");

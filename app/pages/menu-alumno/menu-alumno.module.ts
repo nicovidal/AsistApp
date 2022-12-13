@@ -18,6 +18,7 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
     MenuAlumnoPageRoutingModule,
     BarcodeScanner
   ],
+  providers:[BarcodeScanner],
   declarations: [MenuAlumnoPage]
 })
 export class MenuAlumnoPageModule {}
