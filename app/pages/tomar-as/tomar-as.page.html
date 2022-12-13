@@ -10,20 +10,26 @@
 </ion-header>
 <ion-content>
   <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Correo: </ion-label>
-      <ion-input type="text" name="txtCorreo" [(ngModel)]="newAsistencia.correo" required></ion-input>
-    </ion-item>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Correo: </ion-label>
+        <ion-input type="text" name="txtCorreo" [(ngModel)]="newAsistencia.correo" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Fecha: </ion-label>
+        <ion-input type="text" name="txtFecha" [(ngModel)]="newAsistencia.fecha" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Modulo: </ion-label>
+        <ion-input type="text" name="txtModulo" [(ngModel)]="newAsistencia.modulo" required></ion-input>
+      </ion-item>
+    </ion-card>
+    
 
-    <ion-item lines="full">
-      <ion-label position="floating">Fecha: </ion-label>
-      <ion-input type="text" name="txtFecha" [(ngModel)]="newAsistencia.fecha" required></ion-input>
-    </ion-item>
+    <br>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Modulo: </ion-label>
-      <ion-input type="text" name="txtModulo" [(ngModel)]="newAsistencia.modulo" required></ion-input>
-    </ion-item>
 
     <ion-row>
       <ion-col>
