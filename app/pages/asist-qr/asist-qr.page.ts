@@ -21,7 +21,7 @@ export class AsistQRPage implements OnInit {
   scannedResultDate:any;
   date=new Date();
   stringDate:string=this.date.toString()
-  fechaFormateada=this.datepipe.transform(this.stringDate,'dd-MM-YYYY HH:mm')||null;
+  fechaFormateada=this.datepipe.transform(this.stringDate,' dd-MM-YYYY HH:mm')||null;
   
 
 
@@ -42,7 +42,7 @@ export class AsistQRPage implements OnInit {
 
   usuario={
     modulo:'',
-    fecha:this.stringDate,
+    fecha:`${this.fechaFormateada}`,
   }
 
   generaScan(){
@@ -52,7 +52,7 @@ export class AsistQRPage implements OnInit {
 
   verScan(){
     this.scannedResult=this.qrCodeString;
-    this.scannedResultDate=this.fechaFormateada;
+    this.scannedResultDate=this.qrFecha;
 
   }
 

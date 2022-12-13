@@ -30,13 +30,11 @@ export class AsistenciaAlumnoPage implements OnInit {
     this.loadDataAsist();
 
   }
-  mostrarMenu(){
-    if(localStorage.getItem('esAlumno')){
-      this.menuController.open('first');
-    }else{
-      this.menuController.open('second')
-    }   
+  mostrarMenu() {
+    this.menuController.enable(true, 'first');
+    this.menuController.open('first');
   }
+
 
   loadDataAsist(){
     this.registroService.getAsistencia().then(datosAsistencia=>{
