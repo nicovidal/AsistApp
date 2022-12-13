@@ -14,6 +14,7 @@
       <form [formGroup]="formularioAsistencia" (keyup.enter)="crearAsistencia()">
         <ion-input type="text" disabled formControlName="asistencia" [(ngModel)]="datoScaneados"
           placeholder="Informacion del escaner">
+          {{datoScaneados}}
         </ion-input>
       </form>
       <div class="guardar">
