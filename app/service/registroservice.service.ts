@@ -13,11 +13,12 @@ export interface Usuario {
 }
 
 export interface AsistenciaTomada {
-
+  correo:string;
   asistenciaAlumno: string;
 }
 
 const USERS_KEY = 'my-usuarios';
+const ASISTENCIAS_KEY='asistencia_usuarios';
 
 
 @Injectable({
@@ -48,19 +49,20 @@ export class RegistroserviceService {
   }
 
   async addAsist(asistencia: AsistenciaTomada): Promise<any> {
-    return this.storage.get(USERS_KEY).then((asistencias: AsistenciaTomada[]) => {
+    return this.storage.get(ASISTENCIAS_KEY).then((asistencias: AsistenciaTomada[]) => {
       if (asistencias) {
         asistencias.push(asistencia);
-        return this.storage.set(USERS_KEY, asistencias);
+        return this.storage.set(ASISTENCIAS_KEY, asistencias);
       }
       else {
-        return this.storage.set(USERS_KEY, [asistencia]);
+        return this.storage.set(ASISTENCIAS_KEY, [asistencia]);
       }
     })
   }
+  
 
   async getAsistencia(): Promise<AsistenciaTomada[]> {
-    return this.storage.get(USERS_KEY);
+    return this.storage.get(ASISTENCIAS_KEY);
   }
 
 

@@ -22,13 +22,11 @@ export class AsistenciaAlumnoPage implements OnInit {
   constructor(private plt:Platform,private registroService:RegistroserviceService,
     private menuController: MenuController ,private loadCtrl:LoadingController,
     private asistenciaService:AsistenciaService) { 
-      this.plt.ready().then(()=>{
-        this.loadAsistencia();
-      })
+
     }
 
   ngOnInit() {
-    this.loadAsistencia();
+   /*  this.loadAsistencia(); */
     this.loadDataAsist();
 
   }
@@ -46,7 +44,7 @@ export class AsistenciaAlumnoPage implements OnInit {
     })
   }
 
-  async loadAsistencia(event?:InfiniteScrollCustomEvent){
+/*   async loadAsistencia(event?:InfiniteScrollCustomEvent){
     const loading = await this.loadCtrl.create({
       message:"Cargando..",
       spinner:"bubbles"
@@ -70,6 +68,6 @@ export class AsistenciaAlumnoPage implements OnInit {
 
     )
 
-  }
+  } */
 
 }

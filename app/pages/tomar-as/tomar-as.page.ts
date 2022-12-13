@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { AlertController, MenuController, ToastController } from '@ionic/angular';
-import { RegistroserviceService, AsistenciaTomada } from '../../service/registroservice.service';
+import { RegistroserviceService, AsistenciaTomada, Usuario } from '../../service/registroservice.service';
 
 
 @Component({
@@ -16,6 +16,7 @@ export class TomarAsPage implements OnInit {
   qrData = '';
   datoScaneados = '';
   newAsistencia: AsistenciaTomada = <AsistenciaTomada>{};
+  usuarioMail: Usuario;
 
   constructor(private alertController: AlertController,
     private toast: ToastController,
@@ -24,7 +25,7 @@ export class TomarAsPage implements OnInit {
     private registroService: RegistroserviceService,
     private fa: FormBuilder) {
     this.formularioAsistencia = this.fa.group({
-      'asistencia': new FormControl("",Validators.required)
+      'asistencia': new FormControl("", Validators.required)
     })
   }
 
@@ -33,11 +34,8 @@ export class TomarAsPage implements OnInit {
   }
 
   mostrarMenu() {
-    if (localStorage.getItem('esAlumno')) {
-      this.menuController.open('first');
-    } else {
-      this.menuController.open('second')
-    }
+    this.menuController.enable(true, 'first');
+    this.menuController.open('first');
   }
 
   scan() {
@@ -52,14 +50,20 @@ export class TomarAsPage implements OnInit {
     var formA = this.formularioAsistencia.value;
     if (this.formularioAsistencia.invalid) {
       this.alertError();
-    } 
+    }
     else {
-      this.newAsistencia.asistenciaAlumno=formA.asistencia
-      this.registroService.addAsist(this.newAsistencia).then(dato => {
-        this.newAsistencia = <AsistenciaTomada>{};
-        this.showToast('Asistencia Tomada Correctamente')
-        return;
+      this.registroService.getOnlyOneUser().then(datoMail => {
+        this.usuarioMail = datoMail;
+        this.newAsistencia.correo = this.usuarioMail.correoUsuario;
+        this.newAsistencia.asistenciaAlumno = formA.asistencia;
+        this.registroService.addAsist(this.newAsistencia).then(dato => {
+          this.newAsistencia = <AsistenciaTomada>{};
+          this.showToast('Asistencia Tomada Correctamente')
+          return;
+        })
+
       })
+
     }
   }
   async showToast(msg) {
