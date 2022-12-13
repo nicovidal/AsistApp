@@ -12,7 +12,7 @@
   <ion-card>
     <ion-card-content>
       <form [formGroup]="formularioAsistencia" (keyup.enter)="crearAsistencia()">
-        <ion-input type="text" formControlName="asistencia" [(ngModel)]="datoScaneados"
+        <ion-input type="text" disabled formControlName="asistencia" [(ngModel)]="datoScaneados"
           placeholder="Informacion del escaner">
         </ion-input>
       </form>

@@ -25,7 +25,7 @@ export class TomarAsPage implements OnInit {
     private registroService: RegistroserviceService,
     private fa: FormBuilder) {
     this.formularioAsistencia = this.fa.group({
-      'asistencia': new FormControl("", Validators.required)
+      'asistencia': new FormControl("" , Validators.required)
     })
   }
 
@@ -63,7 +63,7 @@ export class TomarAsPage implements OnInit {
         })
 
       })
-
+      this.formularioAsistencia.reset();
     }
   }
   async showToast(msg) {
