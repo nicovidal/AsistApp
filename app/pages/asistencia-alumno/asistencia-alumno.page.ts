@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InfiniteScrollCustomEvent, LoadingController, MenuController } from '@ionic/angular';
 import { AsistenciaService}from '../../service/asistencia.service';
+import { RegistroserviceService,AsistenciaTomada } from '../../service/registroservice.service';
 
 interface Componente{
   icon: string;
@@ -14,12 +15,18 @@ interface Componente{
   styleUrls: ['./asistencia-alumno.page.scss'],
 })
 export class AsistenciaAlumnoPage implements OnInit {
-  asistencia=[]
-  constructor(private menuController: MenuController ,private loadCtrl:LoadingController,
+
+  asistencia=[];
+  datosAsistencia:AsistenciaTomada[]=[];
+
+  constructor(private registroService:RegistroserviceService,
+    private menuController: MenuController ,private loadCtrl:LoadingController,
     private asistenciaService:AsistenciaService) { }
 
   ngOnInit() {
-    this.loadAsistencia();
+
+    this.loadDataAsist();
+
   }
   mostrarMenu(){
     if(localStorage.getItem('esAlumno')){
@@ -27,6 +34,12 @@ export class AsistenciaAlumnoPage implements OnInit {
     }else{
       this.menuController.open('second')
     }   
+  }
+
+  loadDataAsist(){
+    this.registroService.getAsistencia().then(datosAsistencia=>{
+      this.datosAsistencia=datosAsistencia
+    })
   }
 
   async loadAsistencia(event?:InfiniteScrollCustomEvent){

@@ -12,6 +12,11 @@ export interface Usuario {
 
 }
 
+export interface AsistenciaTomada {
+
+  asistenciaAlumno: string;
+}
+
 const USERS_KEY = 'my-usuarios';
 
 
@@ -19,7 +24,7 @@ const USERS_KEY = 'my-usuarios';
   providedIn: 'root'
 })
 export class RegistroserviceService {
-  
+
   private _storage: Storage;
 
   constructor(private storage: Storage) {
@@ -33,7 +38,7 @@ export class RegistroserviceService {
   async addUsuario(dato: Usuario): Promise<any> {
     return this.storage.get(USERS_KEY).then((datos: Usuario[]) => {
       if (datos) {
-        datos.push(dato);    
+        datos.push(dato);
         return this.storage.set(USERS_KEY, datos);
       }
       else {
@@ -42,44 +47,59 @@ export class RegistroserviceService {
     })
   }
 
-  
-  async actualizar(dato:Usuario):Promise <any>{
-    return this.storage.get(USERS_KEY).then((datos:Usuario[])=>{
-      if(!datos||datos.length==0){
+  async addAsist(asistencia: AsistenciaTomada): Promise<any> {
+    return this.storage.get(USERS_KEY).then((asistencias: AsistenciaTomada[]) => {
+      if (asistencias) {
+        asistencias.push(asistencia);
+        return this.storage.set(USERS_KEY, asistencias);
+      }
+      else {
+        return this.storage.set(USERS_KEY, [asistencia]);
+      }
+    })
+  }
+
+  async getAsistencia(): Promise<AsistenciaTomada[]> {
+    return this.storage.get(USERS_KEY);
+  }
+
+
+
+  async actualizar(dato: Usuario): Promise<any> {
+    return this.storage.get(USERS_KEY).then((datos: Usuario[]) => {
+      if (!datos || datos.length == 0) {
         return null;
       }
-      let newDato:Usuario[]=[];
-      for(let i of datos){
-        if(i.correoUsuario===dato.correoUsuario){
+      let newDato: Usuario[] = [];
+      for (let i of datos) {
+        if (i.correoUsuario === dato.correoUsuario) {
           newDato.push(dato);
         }
-        else{
+        else {
           newDato.push(i)
         }
       }
-      return this.storage.set(USERS_KEY,newDato)
+      return this.storage.set(USERS_KEY, newDato)
 
 
     });
-    
-  }
 
- 
+  }
   async getUsuarios(): Promise<Usuario[]> {
     return this.storage.get(USERS_KEY);
   }
 
   async getOnlyOneUser() {
-    const nombre =localStorage.getItem('infoUsuario');
-    if (nombre) {     
+    const nombre = localStorage.getItem('infoUsuario');
+    if (nombre) {
       const algo = await this.storage.get(USERS_KEY)
       const usuario = algo.findIndex(a => a.nomUsuario === nombre)
       return algo[usuario];
     }
     return null
-    
+
   }
-  
+
 
 }
 

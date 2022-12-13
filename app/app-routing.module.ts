@@ -49,7 +49,11 @@ const routes: Routes = [
   {
     path: 'menu-profesor',
     loadChildren: () => import('./pages/menu-profesor/menu-profesor.module').then( m => m.MenuProfesorPageModule) ,canActivate: [IngresadoGuard, ProfesorGuard]
+  },  {
+    path: 'tomar-as',
+    loadChildren: () => import('./pages/tomar-as/tomar-as.module').then( m => m.TomarAsPageModule)
   },
+
 
 
 

@@ -70,5 +70,10 @@ export class AppComponent {
       name: 'Feriados',
       redirecTo: '/feriado'
     },
+    {
+      icon: 'accessibility-outline',
+      name: 'Tomar Asistencia',
+      redirecTo: '/tomar-as'
+    },
   ] 
 }

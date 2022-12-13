@@ -19,8 +19,6 @@ export class DatosPage implements OnInit {
   datos:Usuario[]=[];
   newDato:Usuario=<Usuario>{};
   
-
-
   constructor(private menuController: MenuController,
     private registroService:RegistroserviceService,private plt:Platform,
     private toastController:ToastController) {
