@@ -9,19 +9,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<!--   <ion-item *ngFor="let a of asistencia">
-    <ion-label>{{a.correo}}</ion-label>
-    <ion-label>{{a.fecha}}</ion-label>
-    <ion-label>{{a.modulo}}</ion-label>
-  </ion-item> -->
     <ion-item *ngFor="let atomada of datosAsistencia">
-      <ion-label>{{atomada.asistenciaAlumno}}</ion-label>
-      <ion-label>{{atomada.correo}}</ion-label>    
+      <ion-label>{{atomada.asistenciaAlumno}}</ion-label> 
     </ion-item>
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar>
-    <ion-button class="botonQr" (click)="onClick()" routerLink="/scanner">
+    <ion-button class="botonQr"  routerLink="/tomar-as">
       <ion-icon slot="icon-only"  name="qr-code-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>

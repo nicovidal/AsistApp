@@ -42,14 +42,11 @@ export class MenuAlumnoPage implements OnInit {
     localStorage.clear();
     this.navController.navigateRoot('login')
   }
-
-  scan(){
-    this.barcodeScanner.scan().then(barcodeData => {
-      this.datoScaneados=barcodeData
-     }).catch(err => {
-         console.log('Error al escanear', err);
-     });
+  scanner() {
+    this.navController.navigateRoot('tomar-as')
   }
+
+
 
 /*   async alertMsg(this.datodatos){
     const alert = await this.alertController.create({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, Platform, ToastController } from '@ionic/angular';
+import { MenuController, NavController, Platform, ToastController } from '@ionic/angular';
 import { RegistroserviceService, Usuario } from '../../service/registroservice.service';
 
 
@@ -21,7 +21,7 @@ export class DatosPage implements OnInit {
   
   constructor(private menuController: MenuController,
     private registroService:RegistroserviceService,private plt:Platform,
-    private toastController:ToastController) {
+    private toastController:ToastController, private navController: NavController) {
       this.plt.ready().then(()=>{
         this.loadDatos();
       })
@@ -31,6 +31,11 @@ export class DatosPage implements OnInit {
 
     
   }
+
+  scanner() {
+    this.navController.navigateRoot('tomar-as')
+  }
+
   
   //obtener datos
   loadDatos(){
