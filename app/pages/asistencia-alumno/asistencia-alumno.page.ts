@@ -28,7 +28,7 @@ export class AsistenciaAlumnoPage implements OnInit {
     }
 
   ngOnInit() {
-
+    this.loadAsistencia();
     this.loadDataAsist();
 
   }
