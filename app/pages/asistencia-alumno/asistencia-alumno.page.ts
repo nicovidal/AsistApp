@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InfiniteScrollCustomEvent, LoadingController, MenuController } from '@ionic/angular';
+import { InfiniteScrollCustomEvent, LoadingController, MenuController, Platform } from '@ionic/angular';
 import { AsistenciaService}from '../../service/asistencia.service';
 import { RegistroserviceService,AsistenciaTomada } from '../../service/registroservice.service';
 
@@ -19,9 +19,13 @@ export class AsistenciaAlumnoPage implements OnInit {
   asistencia=[];
   datosAsistencia:AsistenciaTomada[]=[];
 
-  constructor(private registroService:RegistroserviceService,
+  constructor(private plt:Platform,private registroService:RegistroserviceService,
     private menuController: MenuController ,private loadCtrl:LoadingController,
-    private asistenciaService:AsistenciaService) { }
+    private asistenciaService:AsistenciaService) { 
+      this.plt.ready().then(()=>{
+        this.loadAsistencia();
+      })
+    }
 
   ngOnInit() {
 

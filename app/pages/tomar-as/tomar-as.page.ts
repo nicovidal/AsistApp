@@ -62,19 +62,16 @@ export class TomarAsPage implements OnInit {
       })
     }
   }
-
   async showToast(msg) {
     const toast = await this.toast.create({
       message: msg,
       duration: 1000,
-
     })
     await toast.present();
     setTimeout(() => {
       /* this.router.navigateByUrl('login'); */
     }, 1000);
   }
-
   async alertError() {
     const alert = await this.alertController.create({
       header: 'Error..',
