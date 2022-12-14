@@ -37,7 +37,7 @@ export class TomarAsPage implements OnInit {
   crearAsistencia(){
     this.asistenciaService.crearModulo(this.newAsistencia).subscribe();
     this.router.navigateByUrl("/asistencia-alumno");
-    this.ngOnInit();
+
   }
 
 }

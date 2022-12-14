@@ -27,8 +27,6 @@ export class AsistenciaAlumnoPage implements OnInit {
 
   ngOnInit() {
     this.loadAsistencia();
-
-
   }
   mostrarMenu() {
     this.menuController.enable(true,'first');
