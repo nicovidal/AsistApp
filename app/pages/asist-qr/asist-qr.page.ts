@@ -32,12 +32,9 @@ export class AsistQRPage implements OnInit {
    this.fechaFormateada
 
   }
-  mostrarMenu(){
-    if(localStorage.getItem('esAlumno')){
-      this.menuController.open('first');
-    }else{
-      this.menuController.open('second')
-    }   
+  mostrarMenu() {
+    this.menuController.enable(true,'first');
+    this.menuController.open('first');
   }
 
   usuario={
